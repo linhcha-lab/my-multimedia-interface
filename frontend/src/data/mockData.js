@@ -68,3 +68,55 @@ export const VALIDATIONS = [
   { id: 4, etudiant: "Sarah Donsoun",     sae: "SAE 401", fichier: "projet_react.zip",     date: "2025-03-09", statut: "valide"     },
   { id: 5, etudiant: "Clémentine Fraise", sae: "SAE 401", fichier: "presentation.pdf",     date: "2025-03-08", statut: "refuse"     },
 ];
+
+
+// ============================================================
+//  Ajoute ces données dans src/data/mockData.js
+//  à la suite des données déjà existantes
+// ============================================================
+
+// Navigation sidebar — vue ÉTUDIANTE (différente de l'enseignant)
+export const NAV_ITEMS_STUDENT = [
+  { id: "dashboard",  label: "Tableau de bord",       icon: "home"     },
+  { id: "saes",       label: "Liste SAE",              icon: "list"     },
+  { id: "documents",  label: "Documents",              icon: "file"     },
+  { id: "annonces",   label: "Annonces",               icon: "announce", badge: 5 },
+  { id: "publier",    label: "Publier une SAE",        icon: "plus"     },
+  { id: "messages",   label: "Messagerie",             icon: "message"  },
+  { id: "contact",    label: "Contacter un enseignant",icon: "students" },
+  { id: "settings",   label: "Paramètres",             icon: "settings" },
+]
+
+// Prochains rendus de l'étudiant
+export const PROCHAINS_RENDUS = [
+  { id: 1, date: "12/08", delai: "dans 13 jours", sae: "SAE 403" },
+  { id: 2, date: "29/08", delai: "dans 23 jours", sae: "SAE 408" },
+  { id: 3, date: "04/09", delai: "dans 50 jours", sae: "SAE 407" },
+]
+
+// SAE de l'étudiant
+export const SAES_STUDENT = [
+  { id: 1, code: "SAE 403", titre: "Projet React / Symfony",  progression: 70, etat: "en_cours", echeance: "2025-08-12" },
+  { id: 2, code: "SAE 406", titre: "Identité visuelle & UX",  progression: 10, etat: "en_cours", echeance: "2025-05-10" },
+  { id: 3, code: "SAE 407", titre: "Expérience utilisateur",  progression: 45, etat: "en_cours", echeance: "2025-09-04" },
+  { id: 4, code: "SAE 408", titre: "Projet multimédia",       progression: 30, etat: "en_cours", echeance: "2025-08-29" },
+  { id: 5, code: "SAE 401", titre: "Développement web",       progression: 90, etat: "en_cours", echeance: "2025-03-15" },
+  { id: 6, code: "SAE 302", titre: "Conception BDD",          progression: 100, etat: "termine", echeance: "2024-12-15" },
+]
+
+// Annonces reçues par l'étudiant
+export const ANNONCES_STUDENT = [
+  { id: 1, titre: "Report de l'échéance SAE 403",         sae: "SAE 403", date: "2025-03-10", lue: false, contenu: "Suite à vos retours, l'échéance est repoussée d'une semaine." },
+  { id: 2, titre: "Rappel : dépôt des livrables SAE 406", sae: "SAE 406", date: "2025-03-08", lue: false, contenu: "N'oubliez pas de déposer vos livrables avant vendredi 17h."    },
+  { id: 3, titre: "Nouvelles consignes Figma",            sae: "SAE 401", date: "2025-03-05", lue: false, contenu: "Les maquettes doivent inclure les versions mobile et desktop." },
+  { id: 4, titre: "Réunion de groupe obligatoire",        sae: "SAE 407", date: "2025-03-03", lue: false, contenu: "Présence obligatoire jeudi 13h salle C204."                    },
+  { id: 5, titre: "Ressources mises à jour",              sae: "SAE 408", date: "2025-03-01", lue: true,  contenu: "De nouvelles ressources ont été ajoutées sur la plateforme."  },
+]
+
+// Documents de l'étudiant
+export const DOCUMENTS_STUDENT = [
+  { id: 1, nom: "rapport_sae403.pdf",    sae: "SAE 403", taille: "2.4 Mo", date: "2025-03-10", type: "rendu"    },
+  { id: 2, nom: "maquettes_v2.fig",      sae: "SAE 406", taille: "8.1 Mo", date: "2025-03-08", type: "rendu"    },
+  { id: 3, nom: "consignes_sae407.pdf",  sae: "SAE 407", taille: "0.8 Mo", date: "2025-03-05", type: "ressource"},
+  { id: 4, nom: "brief_sae408.pdf",      sae: "SAE 408", taille: "1.2 Mo", date: "2025-03-01", type: "ressource"},
+]
