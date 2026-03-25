@@ -16,6 +16,8 @@ import Settings         from "../pages/teacher/Settings"
 // ── Pages étudiant ───────────────────────────────────────────
 import StudentDashboard from "../pages/student/StudentDashboard"
 import StudentSAEList   from "../pages/student/StudentSAEList"
+import SAEDetailStudent from "../pages/student/SAEDetail"
+
 
 // ✅ CORRECTION ICI (plus de { })
 import StudentAnnonces  from "../pages/student/StudentAnnonces"
@@ -68,6 +70,7 @@ export default function AppRoutes() {
       {/* ── Étudiant ── */}
       <Route path="/student/dashboard" element={<StudentDashboard />} />
       <Route path="/student/saes"      element={<StudentSAEList />} />
+      <Route path="/student/saes/:id" element={<SAEDetailStudent />} />
       <Route path="/student/annonces"  element={<StudentAnnonces />} />
       <Route path="/student/documents" element={<StudentDocuments />} />
       <Route path="/student/publier"   element={<StudentDocuments />} />
