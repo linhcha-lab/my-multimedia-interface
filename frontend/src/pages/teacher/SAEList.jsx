@@ -71,7 +71,7 @@ export default function SAEList() {
           ].map(f => (
             <button key={f.val} onClick={() => setFiltre(f.val)} style={{
               padding: "7px 16px", borderRadius: 20, fontSize: 12, cursor: "pointer",
-              fontFamily: "inherit", fontWeight: 500,
+              fontFamily: "Plus Jakarta Sans", fontWeight: 500,
               background: filtre === f.val ? "#7c3aed" : "#fff",
               color:      filtre === f.val ? "#fff"    : "#666",
               border:     filtre === f.val ? "none"    : "1px solid #e0daf5",
@@ -88,7 +88,7 @@ export default function SAEList() {
           padding: "9px 18px", borderRadius: 12, border: "none",
           background: "linear-gradient(135deg,#7c3aed,#9d5cf5)",
           color: "#fff", fontSize: 13, fontWeight: 600,
-          cursor: "pointer", fontFamily: "inherit",
+          cursor: "pointer", fontFamily: "Plus Jakarta Sans",
         }}>
           <Svg d={IC.plus} size={16} color="#fff" />
           Nouvelle SAE
@@ -159,7 +159,7 @@ export default function SAEList() {
               <label style={{ display: "block", fontSize: 11, fontWeight: 700, color: "#7c3aed", marginBottom: 5, textTransform: "uppercase", letterSpacing: .5 }}>{label}</label>
               <input type={type} placeholder={ph} value={form[champ]}
                 onChange={e => setForm(f => ({ ...f, [champ]: e.target.value }))}
-                style={{ width: "100%", padding: "10px 12px", borderRadius: 10, border: "1.5px solid #e0daf5", fontSize: 13, outline: "none", fontFamily: "inherit", boxSizing: "border-box", color: "#2d2d4e" }} />
+                style={{ width: "100%", padding: "10px 12px", borderRadius: 10, border: "1.5px solid #e0daf5", fontSize: 13, outline: "none", fontFamily: "Plus Jakarta Sans", boxSizing: "border-box", color: "#2d2d4e" }} />
             </div>
           ))}
           <div style={{ display: "flex", gap: 10, marginTop: 22 }}>

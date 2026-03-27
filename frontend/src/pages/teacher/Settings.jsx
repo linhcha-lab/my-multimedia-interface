@@ -17,7 +17,7 @@ export default function Settings() {
 
   const Section = ({ title, children }) => (
     <div style={{ background: "#fff", borderRadius: 16, padding: 24, boxShadow: "0 2px 12px rgba(0,0,0,.06)", marginBottom: 16 }}>
-      <h2 style={{ fontFamily: "'Syne',sans-serif", fontSize: 16, fontWeight: 800, color: "#1a1a2e", marginBottom: 18 }}>{title}</h2>
+      <h2 style={{ fontFamily: "'Payton One',sans-serif", fontSize: 16, fontWeight: 800, color: "#1a1a2e", marginBottom: 18 }}>{title}</h2>
       {children}
     </div>
   );
@@ -27,7 +27,7 @@ export default function Settings() {
       <label style={{ display: "block", fontSize: 11, fontWeight: 700, color: "#7c3aed", marginBottom: 5, textTransform: "uppercase", letterSpacing: .5 }}>{label}</label>
       <input type={type} value={form[champ]} placeholder={placeholder}
         onChange={e => set(champ, e.target.value)}
-        style={{ width: "100%", padding: "10px 12px", borderRadius: 10, border: "1.5px solid #e0daf5", fontSize: 13, outline: "none", fontFamily: "inherit", boxSizing: "border-box", color: "#2d2d4e" }} />
+        style={{ width: "100%", padding: "10px 12px", borderRadius: 10, border: "1.5px solid #e0daf5", fontSize: 13, outline: "none", fontFamily: "Plus Jakarta Sans", boxSizing: "border-box", color: "#2d2d4e" }} />
     </div>
   );
 
@@ -63,7 +63,7 @@ export default function Settings() {
             }}>S</div>
             <div>
               <div style={{ fontSize: 15, fontWeight: 700, color: "#1a1a2e" }}>Prof. Sanchez</div>
-              <button style={{ fontSize: 12, color: "#7c3aed", background: "none", border: "none", cursor: "pointer", padding: 0, marginTop: 4, fontFamily: "inherit" }}>
+              <button style={{ fontSize: 12, color: "#7c3aed", background: "none", border: "none", cursor: "pointer", padding: 0, marginTop: 4, fontFamily: "Plus Jakarta Sans" }}>
                 Changer la photo
               </button>
             </div>
@@ -79,7 +79,7 @@ export default function Settings() {
             padding: "10px 22px", borderRadius: 12, border: "none",
             background: "linear-gradient(135deg,#7c3aed,#9d5cf5)",
             color: "#fff", fontSize: 13, fontWeight: 600,
-            cursor: "pointer", fontFamily: "inherit", marginTop: 4,
+            cursor: "pointer", fontFamily: "Plus Jakarta Sans", marginTop: 4,
           }}>
             Sauvegarder
           </button>
@@ -94,7 +94,7 @@ export default function Settings() {
             padding: "10px 22px", borderRadius: 12, border: "none",
             background: "linear-gradient(135deg,#7c3aed,#9d5cf5)",
             color: "#fff", fontSize: 13, fontWeight: 600,
-            cursor: "pointer", fontFamily: "inherit", marginTop: 4,
+            cursor: "pointer", fontFamily: "Plus Jakarta Sans", marginTop: 4,
           }}>
             Modifier
           </button>

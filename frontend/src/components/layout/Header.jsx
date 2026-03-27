@@ -38,7 +38,7 @@ export default function Header({ title, subtitle = "Semestre 4 — BUT2 MMI · 2
       {/* Titre + sous-titre */}
       <div style={{ flex: 1, minWidth: 0 }}>
         <h1 style={{
-          fontFamily: "'Syne', sans-serif",
+          fontFamily: "'Payton One', sans-serif",
           fontSize: isMobile ? 18 : 24,
           fontWeight: 900, color: "#1a1a2e",
           overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap",

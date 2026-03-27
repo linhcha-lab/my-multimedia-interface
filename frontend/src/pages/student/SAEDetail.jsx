@@ -87,7 +87,7 @@ function TabApercu({ sae, detail }) {
         marginBottom: 24, flexWrap: "wrap", gap: 12,
       }}>
         <h2 style={{
-          fontFamily: "'Syne',sans-serif",
+          fontFamily: "'Paytone One',sans-serif",
           fontSize: 20, fontWeight: 800, color: "#221A47",
         }}>
           Aperçu du projet
@@ -208,7 +208,7 @@ function TabTaches({ detail }) {
   return (
     <div>
       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 20 }}>
-        <h2 style={{ fontFamily: "'Syne',sans-serif", fontSize: 20, fontWeight: 800, color: "#221A47" }}>Tâches</h2>
+        <h2 style={{ fontFamily: "'Paytone One',sans-serif", fontSize: 20, fontWeight: 800, color: "#221A47" }}>Tâches</h2>
         <span style={{ fontSize: 13, color: "#7c3aed", fontWeight: 700 }}>{done}/{total} complétées</span>
       </div>
       <div style={{ background: "#e8e4f0", borderRadius: 6, height: 8, marginBottom: 24, overflow: "hidden" }}>
@@ -247,7 +247,7 @@ function TabTaches({ detail }) {
 function TabRessources({ detail }) {
   return (
     <div>
-      <h2 style={{ fontFamily: "'Syne',sans-serif", fontSize: 20, fontWeight: 800, color: "#221A47", marginBottom: 20 }}>
+      <h2 style={{ fontFamily: "'Paytone One',sans-serif", fontSize: 20, fontWeight: 800, color: "#221A47", marginBottom: 20 }}>
         Ressources
       </h2>
       <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
@@ -287,7 +287,7 @@ function TabDepots({ detail }) {
   return (
     <div>
       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 20 }}>
-        <h2 style={{ fontFamily: "'Syne',sans-serif", fontSize: 20, fontWeight: 800, color: "#221A47" }}>Mes dépôts</h2>
+        <h2 style={{ fontFamily: "'Paytone One',sans-serif", fontSize: 20, fontWeight: 800, color: "#221A47" }}>Mes dépôts</h2>
         <button style={{ display: "flex", alignItems: "center", gap: 8, padding: "9px 16px", borderRadius: 10, border: "none", background: "#7c3aed", color: "#fff", fontSize: 12, fontWeight: 600, cursor: "pointer", fontFamily: "inherit" }}>
           <Svg d={IC.plus} size={14} color="#fff" /> Déposer un fichier
         </button>
@@ -319,7 +319,7 @@ function TabDepots({ detail }) {
 function TabAnnonces({ detail }) {
   return (
     <div>
-      <h2 style={{ fontFamily: "'Syne',sans-serif", fontSize: 20, fontWeight: 800, color: "#221A47", marginBottom: 20 }}>Annonces</h2>
+      <h2 style={{ fontFamily: "'Paytone One',sans-serif", fontSize: 20, fontWeight: 800, color: "#221A47", marginBottom: 20 }}>Annonces</h2>
       <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
         {detail.annonces.map(a => (
           <div key={a.id} style={{ background: "#F5F4F1", borderRadius: 12, padding: 20, boxShadow: "-2px 4px 14px rgba(0,0,0,.08)" }}>
@@ -391,7 +391,7 @@ export default function SAEDetailStudent() {
 
         {/* Titre en jaune — grosse typo comme sur la maquette */}
         <h1 style={{
-          fontFamily: "'Syne',sans-serif",
+          fontFamily: "'Paytone One',sans-serif",
           fontSize: 28, fontWeight: 900,
           color: "#E5FF3C",         // jaune citron de la maquette
           lineHeight: 1.15,

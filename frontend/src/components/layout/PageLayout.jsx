@@ -29,8 +29,8 @@ export default function PageLayout({ title, children }) {
         @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800;900&family=DM+Sans:wght@300;400;500;600;700&display=swap');
         *,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
         html,body,#root { height:100%; }
-        body { font-family:'DM Sans',sans-serif; background:#f8f6fc; }
-        button,input,textarea,select { font-family:'DM Sans',sans-serif; }
+        body { font-family:'Payton One',sans-serif; background:#f8f6fc; }
+        button,input,textarea,select { font-family:'Payton One',sans-serif; }
         ::-webkit-scrollbar { width:5px; }
         ::-webkit-scrollbar-thumb { background:#d1c4f5; border-radius:3px; }
       `}</style>

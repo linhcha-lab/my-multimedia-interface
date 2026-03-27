@@ -48,10 +48,10 @@ export default function SidebarStudent({ open, onClose }) {
           <div style={{ display: "flex", alignItems: "center", gap: 10, cursor: "pointer" }}
             onClick={() => navigate("/student/dashboard")}>
             <div style={{ width: 36, height: 36, borderRadius: 10, background: "linear-gradient(135deg,#7c3aed,#c8f000)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-              <span style={{ fontSize: 16, fontWeight: 900, color: "#fff", fontFamily: "'Syne',sans-serif" }}>M</span>
+              <span style={{ fontSize: 16, fontWeight: 900, color: "#fff", fontFamily: "'Payton One',sans-serif" }}>M</span>
             </div>
             <div>
-              <div style={{ fontSize: 10, fontWeight: 800, color: "#7c3aed", fontFamily: "'Syne',sans-serif" }}>My</div>
+              <div style={{ fontSize: 10, fontWeight: 800, color: "#7c3aed", fontFamily: "'Payton One',sans-serif" }}>My</div>
               <div style={{ fontSize: 9, fontWeight: 600, color: "#2d2d4e", lineHeight: 1.3 }}>Multimedia<br />Interface</div>
             </div>
           </div>

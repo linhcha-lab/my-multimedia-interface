@@ -17,8 +17,8 @@ export default function PageLayoutStudent({ title, children }) {
     <>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800;900&family=DM+Sans:wght@300;400;500;600;700&display=swap');
-        body { font-family: 'DM Sans', sans-serif; background: #f8f6fc; }
-        button, input, textarea, select { font-family: 'DM Sans', sans-serif; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background: #f8f6fc; }
+        button, input, textarea, select { font-family: 'Plus Jakarta Sans', sans-serif; }
         ::-webkit-scrollbar { width: 5px; }
         ::-webkit-scrollbar-thumb { background: #d1c4f5; border-radius: 3px; }
       `}</style>

@@ -97,7 +97,7 @@ const PROJETS = [
             borderRadius:7,margin:"4px 0",display:"flex",
             alignItems:"center",justifyContent:"center",
           }}>
-            <span style={{fontSize:7,fontWeight:900,color:"#fff",fontFamily:"'Syne',sans-serif",letterSpacing:1}}>FUTURPROOF</span>
+            <span style={{fontSize:7,fontWeight:900,color:"#fff",fontFamily:"'Payton One',sans-serif",letterSpacing:1}}>FUTURPROOF</span>
           </div>
           <div style={{width:16,height:16,borderRadius:"50%",border:"1.5px solid #334155"}} />
         </div>
@@ -120,7 +120,7 @@ const PROJETS = [
         {/* Magazine */}
         <div style={{width:"58%",height:"88%",background:"#fff",borderRadius:7,boxShadow:"0 6px 24px rgba(0,0,0,.25)",overflow:"hidden",display:"flex",flexDirection:"column"}}>
           <div style={{background:"#1a1a2e",padding:"7px 10px"}}>
-            <div style={{fontSize:9,fontWeight:900,color:"#fff",letterSpacing:2,fontFamily:"'Syne',sans-serif"}}>MANY THINGS</div>
+            <div style={{fontSize:9,fontWeight:900,color:"#fff",letterSpacing:2,fontFamily:"'Payton One',sans-serif"}}>MANY THINGS</div>
           </div>
           <div style={{flex:1,background:"linear-gradient(180deg,#c4a882 0%,#8b6e52 100%)",display:"flex",alignItems:"flex-end",justifyContent:"center",position:"relative"}}>
             <div style={{width:30,height:52,background:"#2d1a0e",borderRadius:"40% 40% 0 0"}} />
@@ -143,14 +143,14 @@ const PROJETS = [
     cardBg: C.beige,
     Illus: () => (
       <div style={{width:"100%",height:"100%",background:"#1a1a2e",borderRadius:10,display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",position:"relative",overflow:"hidden"}}>
-        <div style={{fontSize:72,fontWeight:900,color:"#fff",fontFamily:"'Syne',sans-serif",lineHeight:1,letterSpacing:-4}}>A</div>
+        <div style={{fontSize:72,fontWeight:900,color:"#fff",fontFamily:"'Payton One',sans-serif",lineHeight:1,letterSpacing:-4}}>A</div>
         <div style={{position:"absolute",bottom:18,left:18,right:18}}>
           <div style={{height:1,background:"rgba(255,255,255,.14)",marginBottom:6}} />
           <div style={{fontSize:7,color:"rgba(255,255,255,.35)",letterSpacing:2,textTransform:"uppercase"}}>PREMIA DESIGN STUDIO</div>
         </div>
         <div style={{position:"absolute",top:14,right:14,width:20,height:20,borderRadius:"50%",border:"1.5px solid rgba(255,255,255,.2)"}} />
         <div style={{position:"absolute",top:23,right:23,width:7,height:7,borderRadius:"50%",background:"rgba(255,255,255,.1)"}} />
-        <div style={{position:"absolute",top:10,left:10,fontSize:8,color:"rgba(255,255,255,.2)",letterSpacing:1,fontFamily:"'Syne',sans-serif"}}>©</div>
+        <div style={{position:"absolute",top:10,left:10,fontSize:8,color:"rgba(255,255,255,.2)",letterSpacing:1,fontFamily:"'Payton One',sans-serif"}}>©</div>
       </div>
     ),
   },
@@ -204,7 +204,7 @@ function ProjetCard({ projet, delay = 0 }) {
 
       {/* Titre */}
       <div style={{
-        fontFamily: "'Syne',sans-serif",
+        fontFamily: "'Payton One',sans-serif",
         fontSize: 18, fontWeight: 900,
         color: C.navy, marginBottom: 3,
         lineHeight: 1.2,
@@ -250,7 +250,7 @@ function SectionMMI({ isMobile, isTablet }) {
     }}>
       {/* Titre */}
       <h2 style={{
-        fontFamily: "'Syne',sans-serif",
+        fontFamily: "'Payton One',sans-serif",
         fontSize: isMobile ? 22 : 30,
         fontWeight: 900, color: "#fff",
         textAlign: "center",
@@ -287,8 +287,8 @@ function SectionMMI({ isMobile, isTablet }) {
               { l: "I", w: "nternet" },
             ].map(({ l, w }) => (
               <div key={w} style={{display:"flex",alignItems:"baseline",gap:2,lineHeight:1.5}}>
-                <span style={{fontFamily:"'Syne',sans-serif",fontWeight:900,fontSize:22,color:C.violet}}>{l}</span>
-                <span style={{fontFamily:"'Syne',sans-serif",fontWeight:700,fontSize:15,color:C.navy}}>{w}</span>
+                <span style={{fontFamily:"'Payton One',sans-serif",fontWeight:900,fontSize:22,color:C.violet}}>{l}</span>
+                <span style={{fontFamily:"'Payton One',sans-serif",fontWeight:700,fontSize:15,color:C.navy}}>{w}</span>
               </div>
             ))}
           </div>
@@ -297,7 +297,7 @@ function SectionMMI({ isMobile, isTablet }) {
           <div style={{
             background: C.jaune,
             borderRadius: 14, padding: "14px 24px",
-            fontFamily: "'Syne',sans-serif", fontWeight: 900,
+            fontFamily: "'Payton One',sans-serif", fontWeight: 900,
             color: C.navy,
             display: "flex", alignItems: "center", gap: 10,
             whiteSpace: "nowrap",
@@ -323,12 +323,12 @@ function SectionMMI({ isMobile, isTablet }) {
               <line x1="50" y1="50" x2="100" y2="50" stroke="#fff" strokeWidth="1.5"/>
 
               {/* Texte gauche (pratiques) */}
-              <text x="26" y="46" fill="#fff" fontSize="7" fontWeight="bold" textAnchor="middle" fontFamily="DM Sans,sans-serif">60% cours</text>
-              <text x="26" y="56" fill="#fff" fontSize="7" fontWeight="bold" textAnchor="middle" fontFamily="DM Sans,sans-serif">pratiques</text>
+              <text x="26" y="46" fill="#fff" fontSize="7" fontWeight="bold" textAnchor="middle" fontFamily="Plus Jakarta Sans,sans-serif">60% cours</text>
+              <text x="26" y="56" fill="#fff" fontSize="7" fontWeight="bold" textAnchor="middle" fontFamily="Plus Jakarta Sans,sans-serif">pratiques</text>
 
               {/* Texte droite (théoriques) */}
-              <text x="75" y="38" fill={C.navy} fontSize="6.5" fontWeight="bold" textAnchor="middle" fontFamily="DM Sans,sans-serif">40% cours</text>
-              <text x="75" y="47" fill={C.navy} fontSize="6.5" fontWeight="bold" textAnchor="middle" fontFamily="DM Sans,sans-serif">théoriques</text>
+              <text x="75" y="38" fill={C.navy} fontSize="6.5" fontWeight="bold" textAnchor="middle" fontFamily="Plus Jakarta Sans,sans-serif">40% cours</text>
+              <text x="75" y="47" fill={C.navy} fontSize="6.5" fontWeight="bold" textAnchor="middle" fontFamily="Plus Jakarta Sans,sans-serif">théoriques</text>
             </svg>
           </div>
         </div>
@@ -402,7 +402,7 @@ function SectionMMI({ isMobile, isTablet }) {
           boxShadow:"0 8px 28px rgba(0,0,0,.1)",
         }}>
           <div style={{
-            fontFamily:"'Syne',sans-serif",fontWeight:800,
+            fontFamily:"'Payton One',sans-serif",fontWeight:800,
             fontSize:18,color:C.navy,
             marginBottom:22,lineHeight:1.3,
           }}>
@@ -465,7 +465,7 @@ function SectionFAQ({ isMobile }) {
           order: isMobile ? 2 : 1,
         }}>
           <span style={{
-            fontFamily:"'Syne',sans-serif",
+            fontFamily:"'Payton One',sans-serif",
             fontSize: isMobile ? 90 : 140,
             fontWeight:900,
             color:"#fff",
@@ -513,7 +513,7 @@ function SectionFAQ({ isMobile }) {
                     }}>
                       <span style={{
                         color:"#fff",fontWeight:900,
-                        fontFamily:"'Syne',sans-serif",fontSize:11,
+                        fontFamily:"'Payton One',sans-serif",fontSize:11,
                       }}>M</span>
                     </span>
                     <span style={{
@@ -562,7 +562,7 @@ function SectionFAQ({ isMobile }) {
             position:"relative",
           }}>
             <div style={{
-              fontFamily:"'Syne',sans-serif",
+              fontFamily:"'Payton One',sans-serif",
               fontWeight:800,fontSize:16,
               color:C.navy,marginBottom:14,
             }}>
@@ -574,7 +574,7 @@ function SectionFAQ({ isMobile }) {
               style={{
                 width:"100%",border:"none",
                 background:"transparent",
-                fontSize:13,fontFamily:"'DM Sans',sans-serif",
+                fontSize:13,fontFamily:"'Plus Jakarta Sans',sans-serif",
                 resize:"none",color:C.navy,
                 outline:"none",
                 "::placeholder":{color:"rgba(34,26,71,.4)"},
@@ -666,11 +666,11 @@ export default function PublicHome() {
           {/* Fallback affiché seulement si img introuvable */}
           <div style={{display:"none",alignItems:"center",justifyContent:"center",gap:8}}>
             <div style={{
-              fontFamily:"'Syne',sans-serif",fontWeight:900,
+              fontFamily:"'Payton One',sans-serif",fontWeight:900,
               fontSize: isMobile ? 46 : 60,color:"#fff",lineHeight:1,
             }}>M</div>
             <div style={{
-              fontFamily:"'Syne',sans-serif",color:"#fff",
+              fontFamily:"'Payton One',sans-serif",color:"#fff",
               lineHeight:1.28,textAlign:"left",paddingTop:4,
             }}>
               <div style={{fontSize: isMobile ? 11 : 14,fontWeight:700,fontStyle:"italic"}}>y</div>
@@ -714,7 +714,7 @@ export default function PublicHome() {
         textAlign:"center",
       }}>
         <h1 style={{
-          fontFamily:"'Syne',sans-serif",
+          fontFamily:"'Payton One',sans-serif",
           fontSize: isMobile ? 22 : isTablet ? 28 : 36,
           fontWeight:900,
           color:"#fff",
@@ -742,7 +742,7 @@ export default function PublicHome() {
         padding: isMobile ? "0 20px 72px" : "0 44px 90px",
       }}>
         <h2 style={{
-          fontFamily:"'Syne',sans-serif",
+          fontFamily:"'Payton One',sans-serif",
           fontSize: isMobile ? 18 : 22,
           fontWeight:800,color:"#fff",
           marginBottom: isMobile ? 22 : 30,
@@ -850,7 +850,7 @@ export default function PublicHome() {
             padding: isMobile ? "15px 42px" : "18px 58px",
             fontSize: isMobile ? 15 : 18,
             fontWeight:800,
-            fontFamily:"'Syne',sans-serif",
+            fontFamily:"'Payton One',sans-serif",
             boxShadow:"0 6px 24px rgba(0,0,0,.22)",
             transition:"transform .18s cubic-bezier(.34,1.56,.64,1)",
             letterSpacing:.3,

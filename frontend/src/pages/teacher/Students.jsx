@@ -37,7 +37,7 @@ export default function Students() {
             style={{
               width: "100%", padding: "10px 12px 10px 36px",
               borderRadius: 12, border: "1px solid #e0daf5",
-              fontSize: 13, outline: "none", fontFamily: "inherit",
+              fontSize: 13, outline: "none", fontFamily: "Plus Jakarta Sans",
               boxSizing: "border-box",
             }}
           />
@@ -45,7 +45,7 @@ export default function Students() {
         {/* Filtre groupe */}
         <select value={groupe} onChange={e => setGroupe(e.target.value)} style={{
           padding: "10px 14px", borderRadius: 12, border: "1px solid #e0daf5",
-          fontSize: 13, outline: "none", fontFamily: "inherit", background: "#fff", color: "#2d2d4e",
+          fontSize: 13, outline: "none", fontFamily: "Plus Jakarta Sans", background: "#fff", color: "#2d2d4e",
         }}>
           {groupes.map(g => (
             <option key={g} value={g}>{g === "tous" ? "Tous les groupes" : g}</option>

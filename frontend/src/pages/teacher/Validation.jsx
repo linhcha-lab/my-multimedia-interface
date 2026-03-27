@@ -28,7 +28,7 @@ export default function Validation() {
     <PageLayout title="Validation des publications">
       {/* Compteur */}
       <div style={{ background: "linear-gradient(135deg,#7c3aed,#9d5cf5)", borderRadius: 14, padding: "16px 22px", marginBottom: 20, display: "inline-flex", alignItems: "center", gap: 12 }}>
-        <span style={{ fontSize: 32, fontWeight: 900, color: "#c8f000", fontFamily: "'Syne',sans-serif" }}>{enAttente}</span>
+        <span style={{ fontSize: 32, fontWeight: 900, color: "#c8f000", fontFamily: "'Payton  One',sans-serif" }}>{enAttente}</span>
         <span style={{ fontSize: 13, fontWeight: 600, color: "rgba(255,255,255,.9)" }}>rendu{enAttente > 1 ? "s" : ""} en attente de validation</span>
       </div>
 
@@ -58,12 +58,12 @@ export default function Validation() {
                 <button onClick={() => refuser(v.id)} style={{
                   padding: "7px 14px", borderRadius: 10, border: "1.5px solid #fca5a5",
                   background: "none", color: "#ef4444", fontSize: 12,
-                  fontWeight: 600, cursor: "pointer", fontFamily: "inherit",
+                  fontWeight: 600, cursor: "pointer", fontFamily: "Plus Jakarta Sans",
                 }}>Refuser</button>
                 <button onClick={() => valider(v.id)} style={{
                   padding: "7px 14px", borderRadius: 10, border: "none",
                   background: "#22c55e", color: "#fff", fontSize: 12,
-                  fontWeight: 600, cursor: "pointer", fontFamily: "inherit",
+                  fontWeight: 600, cursor: "pointer", fontFamily: "Plus Jakarta Sans",
                 }}>Valider</button>
               </div>
             )}

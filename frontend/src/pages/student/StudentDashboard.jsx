@@ -27,7 +27,7 @@ function RenduCard({ date, delai, sae }) {
       <div style={{
         background: "#7c3aed", color: "#fff",
         borderRadius: 10, padding: "6px 10px",
-        fontFamily: "'Syne',sans-serif", fontWeight: 800,
+        fontFamily: "'Payton One',sans-serif", fontWeight: 800,
         fontSize: 14, flexShrink: 0, minWidth: 52, textAlign: "center",
       }}>
         {date}
@@ -67,7 +67,7 @@ function AnnonceCard({ count, onClick }) {
       <div style={{ fontSize: 52, flexShrink: 0, userSelect: "none" }}>📣</div>
       <div>
         <span style={{
-          fontFamily: "'Syne',sans-serif",
+          fontFamily: "'Payton One',sans-serif",
           fontSize: 26, fontWeight: 900,
           color: "#1a1a2e", lineHeight: 1.2,
           display: "block",
@@ -116,7 +116,7 @@ export default function StudentDashboard() {
 
           {/* Messages */}
           <div style={{ background: "#fff", borderRadius: 18, padding: 20, boxShadow: "0 2px 18px rgba(0,0,0,.06)" }}>
-            <h2 style={{ fontFamily: "'Syne',sans-serif", fontSize: 17, fontWeight: 800, color: "#1a1a2e", marginBottom: 12 }}>
+            <h2 style={{ fontFamily: "'Payton One',sans-serif", fontSize: 17, fontWeight: 800, color: "#1a1a2e", marginBottom: 12 }}>
               Messages
             </h2>
             {MESSAGES.map(m => (
@@ -145,7 +145,7 @@ export default function StudentDashboard() {
 
           {/* Prochains rendus */}
           <div style={{ background: "#ede9fb", borderRadius: 18, padding: 22 }}>
-            <h2 style={{ fontFamily: "'Syne',sans-serif", fontSize: 17, fontWeight: 800, color: "#1a1a2e", marginBottom: 16 }}>
+            <h2 style={{ fontFamily: "'Payton One',sans-serif", fontSize: 17, fontWeight: 800, color: "#1a1a2e", marginBottom: 16 }}>
               Prochains rendus
             </h2>
             {PROCHAINS_RENDUS.map(r => (

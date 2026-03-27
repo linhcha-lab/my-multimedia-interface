@@ -26,7 +26,7 @@ export default function Messaging() {
             boxShadow: "0 2px 16px rgba(0,0,0,.06)",
             overflowY: "auto",
           }}>
-            <div style={{ padding: "16px 16px 8px", fontFamily: "'Syne',sans-serif", fontSize: 15, fontWeight: 800, color: "#1a1a2e" }}>
+            <div style={{ padding: "16px 16px 8px", fontFamily: "'Payton One',sans-serif", fontSize: 15, fontWeight: 800, color: "#1a1a2e" }}>
               Conversations
             </div>
             {MESSAGES.map(m => (
@@ -112,7 +112,7 @@ export default function Messaging() {
                 style={{
                   flex: 1, padding: "10px 14px", borderRadius: 12,
                   border: "1.5px solid #e0daf5", fontSize: 13,
-                  outline: "none", fontFamily: "inherit",
+                  outline: "none", fontFamily: "Plus Jakarta Sans",
                 }}
               />
               <button onClick={() => { alert("Message envoyé ! (connecte Symfony)"); setReply(""); }} style={{

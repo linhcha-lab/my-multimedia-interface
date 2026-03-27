@@ -27,7 +27,7 @@ function PlanifierForm({ onClose }) {
   const inputStyle = {
     width: "100%", padding: "10px 12px", borderRadius: 10,
     border: "1.5px solid #e0daf5", fontSize: 13, outline: "none",
-    fontFamily: "inherit", boxSizing: "border-box", color: "#2d2d4e",
+    fontFamily: "Plus Jakarta Sans", boxSizing: "border-box", color: "#2d2d4e",
   };
 
   return (
@@ -119,7 +119,7 @@ export default function TeacherDashboard() {
 
           {/* Messages */}
           <div style={{ background: "#fff", borderRadius: 18, padding: 20, boxShadow: "0 2px 18px rgba(0,0,0,.06)" }}>
-            <h2 style={{ fontFamily: "'Syne',sans-serif", fontSize: 17, fontWeight: 800, color: "#1a1a2e", marginBottom: 12 }}>
+            <h2 style={{ fontFamily: "'Payton One',sans-serif", fontSize: 17, fontWeight: 800, color: "#1a1a2e", marginBottom: 12 }}>
               Messages
             </h2>
             {MESSAGES.map(m => (
@@ -145,7 +145,7 @@ export default function TeacherDashboard() {
         <div style={{ display: "grid", gap: 16, gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr" }}>
           {/* Avancée des groupes */}
           <div style={{ background: "#ede9fb", borderRadius: 18, padding: 20 }}>
-            <h2 style={{ fontFamily: "'Syne',sans-serif", fontSize: 17, fontWeight: 800, color: "#1a1a2e", marginBottom: 14 }}>
+            <h2 style={{ fontFamily: "'Payton One',sans-serif", fontSize: 17, fontWeight: 800, color: "#1a1a2e", marginBottom: 14 }}>
               Avancée des groupes
             </h2>
             {GROUP_PROGRESS.map((g, i) => <GroupCard key={i} {...g} />)}
@@ -153,7 +153,7 @@ export default function TeacherDashboard() {
 
           {/* Statistiques rapides */}
           <div style={{ background: "#fff", borderRadius: 18, padding: 20, boxShadow: "0 2px 18px rgba(0,0,0,.06)" }}>
-            <h2 style={{ fontFamily: "'Syne',sans-serif", fontSize: 17, fontWeight: 800, color: "#1a1a2e", marginBottom: 14 }}>
+            <h2 style={{ fontFamily: "'Payton One',sans-serif", fontSize: 17, fontWeight: 800, color: "#1a1a2e", marginBottom: 14 }}>
               Statistiques rapides
             </h2>
             {QUICK_STATS.map(s => (
@@ -162,7 +162,7 @@ export default function TeacherDashboard() {
                 padding: "11px 0", borderBottom: "1px solid #f0edf8",
               }}>
                 <span style={{ fontSize: 14, color: "#555" }}>{s.label}</span>
-                <span style={{ fontSize: 22, fontWeight: 800, color: s.color, fontFamily: "'Syne',sans-serif" }}>{s.value}</span>
+                <span style={{ fontSize: 22, fontWeight: 800, color: s.color, fontFamily: "'Payton One',sans-serif" }}>{s.value}</span>
               </div>
             ))}
             {isMobile && (

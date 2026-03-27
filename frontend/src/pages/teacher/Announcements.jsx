@@ -30,7 +30,7 @@ export default function Announcements() {
           padding: "9px 18px", borderRadius: 12, border: "none",
           background: "linear-gradient(135deg,#7c3aed,#9d5cf5)",
           color: "#fff", fontSize: 13, fontWeight: 600,
-          cursor: "pointer", fontFamily: "inherit",
+          cursor: "pointer", fontFamily: "Plus Jakarta Sans",
         }}>
           <Svg d={IC.plus} size={16} color="#fff" />
           Nouvelle annonce
@@ -77,11 +77,11 @@ export default function Announcements() {
               {type === "textarea" ? (
                 <textarea placeholder={ph} value={form[champ]} rows={4}
                   onChange={e => setForm(f => ({ ...f, [champ]: e.target.value }))}
-                  style={{ width: "100%", padding: "10px 12px", borderRadius: 10, border: "1.5px solid #e0daf5", fontSize: 13, outline: "none", fontFamily: "inherit", boxSizing: "border-box", resize: "vertical", color: "#2d2d4e" }} />
+                  style={{ width: "100%", padding: "10px 12px", borderRadius: 10, border: "1.5px solid #e0daf5", fontSize: 13, outline: "none", fontFamily: "Plus Jakarta Sans", boxSizing: "border-box", resize: "vertical", color: "#2d2d4e" }} />
               ) : (
                 <input type={type} placeholder={ph} value={form[champ]}
                   onChange={e => setForm(f => ({ ...f, [champ]: e.target.value }))}
-                  style={{ width: "100%", padding: "10px 12px", borderRadius: 10, border: "1.5px solid #e0daf5", fontSize: 13, outline: "none", fontFamily: "inherit", boxSizing: "border-box", color: "#2d2d4e" }} />
+                  style={{ width: "100%", padding: "10px 12px", borderRadius: 10, border: "1.5px solid #e0daf5", fontSize: 13, outline: "none", fontFamily: "Plus Jakarta Sans", boxSizing: "border-box", color: "#2d2d4e" }} />
               )}
             </div>
           ))}
