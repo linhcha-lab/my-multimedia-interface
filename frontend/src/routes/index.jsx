@@ -31,6 +31,8 @@ import StudentContact from "../pages/student/StudentContact"
 import StudentMessaging from "../pages/student/StudentMessaging"
 import StudentSettings from "../pages/student/StudentSettings"
 
+import StudentPublier from "../pages/student/StudentPublier"
+
 // ── Page 404 ─────────────────────────────────────────────────
 function NotFound() {
   return (
@@ -78,10 +80,11 @@ export default function AppRoutes() {
       <Route path="/student/saes/:id" element={<SAEDetailStudent />} />
       <Route path="/student/annonces" element={<StudentAnnonces />} />
       <Route path="/student/documents" element={<StudentDocuments />} />
-      <Route path="/student/publier" element={<StudentDocuments />} />
+      {/* <Route path="/student/publier" element={<StudentDocuments />} /> */}
       <Route path="/student/messages" element={<StudentMessaging />} />
       <Route path="/student/contact" element={<StudentContact />} />
       <Route path="/student/settings" element={<StudentSettings />} />
+      <Route path="/student/publier" element={<StudentPublier />} />
 
       {/* 404 */}
       <Route path="*" element={<NotFound />} />
