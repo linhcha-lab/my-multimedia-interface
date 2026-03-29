@@ -9,8 +9,7 @@ import PublicHome from "../pages/public/PublicHome"
 import ProjetsList  from "../pages/public/projets/ProjetsList"
 import ProjetDetail from "../pages/public/projets/ProjetDetail";
 
-import ProjetsList from "../pages/public/projets/ProjetsList";
-import ProjetDetail from "../pages/public/projets/ProjetDetail";
+
 
 
 // ── Authentification ─────────────────────────────────────────
@@ -71,11 +70,8 @@ export default function AppRoutes() {
       <Route path="/" element={<PublicHome />} />
       <Route path="/login" element={<Login />} />
       <Route path="/public/projets"     element={<ProjetsList />} />
-<Route path="/public/projets/:id" element={<ProjetDetail />} />
-
-      <Route path="/public/projets"      element={<ProjetsList />} />
-<Route path="/public/projets/:id"  element={<ProjetDetail />} />
-<Route path="/prof/projets"        element={<ProjetsList isProf />} />
+      <Route path="/public/projets/:id" element={<ProjetDetail />} />
+      <Route path="/prof/projets"        element={<ProjetsList isProf />} />
 
 
       {/* ── Enseignant ── */}

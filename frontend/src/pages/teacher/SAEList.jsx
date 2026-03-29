@@ -31,12 +31,9 @@ function ProgressBar({ value }) {
 // ════════════════════════════════════════════════════════════════
 //  FORMULAIRE DE CRÉATION — 2 phases
 // ════════════════════════════════════════════════════════════════
-<<<<<<< HEAD
+
 export function CreationModal({ onClose, onCreated }) {
-=======
-function CreationModal({ onClose, onCreated }) {
->>>>>>> 66b4eb6a63370b3e592918a544bd10e8928ddcc8
-  const [phase, setPhase] = useState(1)
+    const [phase, setPhase] = useState(1)
 
   // ── Phase 1 ───────────────────────────────────────────────
   const [form1, setForm1] = useState({
