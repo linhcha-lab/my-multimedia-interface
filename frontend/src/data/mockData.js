@@ -122,15 +122,6 @@ export const DOCUMENTS_STUDENT = [
 ]
 
 
-
-// ============================================================
-//  data/projets.js
-//  Source unique de tous les projets publiés.
-//  Importé par ProjetsList.jsx ET ProjetDetail.jsx
-//
-//  Plus tard : remplace ce tableau par un fetch("/api/projets")
-// ============================================================
-
 export const PROJETS = [
   {
     id: "1",

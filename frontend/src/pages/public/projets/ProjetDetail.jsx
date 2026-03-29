@@ -14,7 +14,10 @@
 // ============================================================
 
 import { useParams, useNavigate } from "react-router-dom"
+
 import { PROJETS } from "../../../data/mockData.js";
+
+import { PROJETS, CATEGORIES } from "../../../data/mockData";
 
 const STYLE = `
   @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800;900&family=DM+Sans:wght@300;400;500;600&display=swap');
