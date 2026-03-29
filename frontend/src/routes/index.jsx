@@ -6,7 +6,8 @@ import { Routes, Route } from "react-router-dom"
 
 // ── Pages publiques ──────────────────────────────────────────
 import PublicHome from "../pages/public/PublicHome"
-
+import ProjetsList  from "../pages/public/projets/ProjetsList"
+import ProjetDetail from "../pages/public/projets/ProjetDetail";
 // ── Authentification ─────────────────────────────────────────
 import Login from "../pages/auth/Login"
 
@@ -64,6 +65,8 @@ export default function AppRoutes() {
       {/* ── Page d'accueil publique ── */}
       <Route path="/" element={<PublicHome />} />
       <Route path="/login" element={<Login />} />
+      <Route path="/public/projets"     element={<ProjetsList />} />
+<Route path="/public/projets/:id" element={<ProjetDetail />} />
 
       {/* ── Enseignant ── */}
       <Route path="/teacher/dashboard" element={<TeacherDashboard />} />
