@@ -24,10 +24,14 @@ function ProgressBar({ value }) {
   )
 }
 
-// ── Modale création 2 phases — exportée pour être réutilisée dans Dashboard ──
+
+// ════════════════════════════════════════════════════════════════
+//  FORMULAIRE DE CRÉATION — 2 phases
+// ════════════════════════════════════════════════════════════════
+
+// ── FORMULAIRE DE CRÉATION — 2 phases (réutilisé dans Dashboard) ──
 export function CreationModal({ onClose, onCreated }) {
   const [phase, setPhase] = useState(1)
-
   const [form1, setForm1] = useState({
     titre: "", description: "", consignes: "",
     parcours: "Développement Web", dateDebut: "", dateLimite: "",

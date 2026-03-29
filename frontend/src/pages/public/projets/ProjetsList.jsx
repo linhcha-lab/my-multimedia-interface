@@ -18,7 +18,8 @@
 
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { PROJETS, CATEGORIES } from "../../../data/mockData";
+
+import { PROJETS, CATEGORIES } from "../../../data/mockData.js";
 
 // ── Styles ───────────────────────────────────────────────────
 const STYLE = `
