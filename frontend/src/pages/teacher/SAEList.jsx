@@ -48,7 +48,7 @@ export function CreationModal({ onClose, onCreated }) {
   const inputStyle = {
     width: "100%", padding: "10px 12px", borderRadius: 10,
     border: "1.5px solid #e0daf5", fontSize: 13, outline: "none",
-    fontFamily: "'DM Sans',sans-serif", boxSizing: "border-box", color: "#2d2d4e",
+    fontFamily: "'Plus Jakarta Sans',sans-serif", boxSizing: "border-box", color: "#2d2d4e",
   }
   const labelStyle = {
     display: "block", fontSize: 11, fontWeight: 700, color: "#7c3aed",
@@ -78,7 +78,7 @@ export function CreationModal({ onClose, onCreated }) {
         {/* En-tête */}
         <div style={{ background: "#1a1a2e", borderRadius: "22px 22px 0 0", padding: "20px 28px" }}>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 16 }}>
-            <h2 style={{ fontFamily: "'Syne',sans-serif", fontSize: 18, fontWeight: 900, color: "#c8f000", margin: 0 }}>
+            <h2 style={{ fontFamily: "'Payton One',sans-serif", fontSize: 18, fontWeight: 900, color: "#c8f000", margin: 0 }}>
               {phase === 1 ? "Créer une SAE — Informations" : "Créer une SAE — Paramétrage pédagogique"}
             </h2>
             <button onClick={onClose} style={{ background: "none", border: "none", cursor: "pointer", color: "rgba(255,255,255,.5)", fontSize: 22, lineHeight: 1 }}>×</button>
@@ -146,7 +146,7 @@ export function CreationModal({ onClose, onCreated }) {
               <div style={{ background: "#f8f6fc", borderRadius: 14, padding: 18, marginBottom: 24 }}>
                 <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 14 }}>
                   <label style={{ ...labelStyle, marginBottom: 0 }}>Groupes & étudiants</label>
-                  <button onClick={() => addItem(setGroupes, groupes)} style={{ display: "flex", alignItems: "center", gap: 5, padding: "5px 12px", borderRadius: 8, border: "none", background: "#7c3aed", color: "#fff", fontSize: 11, fontWeight: 700, cursor: "pointer", fontFamily: "inherit" }}>
+                  <button onClick={() => addItem(setGroupes, groupes)} style={{ display: "flex", alignItems: "center", gap: 5, padding: "5px 12px", borderRadius: 8, border: "none", background: "#7c3aed", color: "#fff", fontSize: 11, fontWeight: 700, cursor: "pointer", fontFamily: "'Plus Jakarta Sans'" }}>
                     <Svg d={IC.plus} size={12} color="#fff" /> Ajouter un groupe
                   </button>
                 </div>
@@ -174,12 +174,12 @@ export function CreationModal({ onClose, onCreated }) {
               </div>
 
               <div style={{ display: "flex", gap: 10 }}>
-                <button onClick={onClose} style={{ flex: 1, padding: 11, borderRadius: 12, border: "1.5px solid #e0daf5", background: "none", fontSize: 14, cursor: "pointer", color: "#666", fontFamily: "inherit" }}>
+                <button onClick={onClose} style={{ flex: 1, padding: 11, borderRadius: 12, border: "1.5px solid #e0daf5", background: "none", fontSize: 14, cursor: "pointer", color: "#666", fontFamily: "'Plus Jakarta Sans'" }}>
                   Annuler
                 </button>
                 <button
                   onClick={() => phase1Valid ? setPhase(2) : alert("Remplis le titre, la date de début et la date limite.")}
-                  style={{ flex: 2, padding: 11, borderRadius: 12, border: "none", background: phase1Valid ? "linear-gradient(135deg,#7c3aed,#9d5cf5)" : "#d1d5db", fontSize: 14, cursor: phase1Valid ? "pointer" : "not-allowed", color: "#fff", fontWeight: 700, fontFamily: "inherit" }}
+                  style={{ flex: 2, padding: 11, borderRadius: 12, border: "none", background: phase1Valid ? "linear-gradient(135deg,#7c3aed,#9d5cf5)" : "#d1d5db", fontSize: 14, cursor: phase1Valid ? "pointer" : "not-allowed", color: "#fff", fontWeight: 700, fontFamily: "'Plus Jakarta Sans'" }}
                 >
                   Étape suivante →
                 </button>
@@ -195,7 +195,7 @@ export function CreationModal({ onClose, onCreated }) {
               <div style={{ marginBottom: 24 }}>
                 <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 12 }}>
                   <label style={{ ...labelStyle, marginBottom: 0 }}>Tâches du projet (étapes)</label>
-                  <button onClick={() => setTaches(t => [...t, { id: Date.now(), label: "" }])} style={{ display: "flex", alignItems: "center", gap: 5, padding: "5px 12px", borderRadius: 8, border: "none", background: "#7c3aed", color: "#fff", fontSize: 11, fontWeight: 700, cursor: "pointer", fontFamily: "inherit" }}>
+                  <button onClick={() => setTaches(t => [...t, { id: Date.now(), label: "" }])} style={{ display: "flex", alignItems: "center", gap: 5, padding: "5px 12px", borderRadius: 8, border: "none", background: "#7c3aed", color: "#fff", fontSize: 11, fontWeight: 700, cursor: "pointer", fontFamily: "'Plus Jakarta Sans'" }}>
                     <Svg d={IC.plus} size={12} color="#fff" /> Ajouter
                   </button>
                 </div>
@@ -218,7 +218,7 @@ export function CreationModal({ onClose, onCreated }) {
               <div style={{ marginBottom: 24 }}>
                 <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 12 }}>
                   <label style={{ ...labelStyle, marginBottom: 0 }}>Livrables attendus</label>
-                  <button onClick={() => setDepots(d => [...d, { id: Date.now(), label: "", deadline: "" }])} style={{ display: "flex", alignItems: "center", gap: 5, padding: "5px 12px", borderRadius: 8, border: "none", background: "#7c3aed", color: "#fff", fontSize: 11, fontWeight: 700, cursor: "pointer", fontFamily: "inherit" }}>
+                  <button onClick={() => setDepots(d => [...d, { id: Date.now(), label: "", deadline: "" }])} style={{ display: "flex", alignItems: "center", gap: 5, padding: "5px 12px", borderRadius: 8, border: "none", background: "#7c3aed", color: "#fff", fontSize: 11, fontWeight: 700, cursor: "pointer", fontFamily: "'Plus Jakarta Sans'" }}>
                     <Svg d={IC.plus} size={12} color="#fff" /> Ajouter
                   </button>
                 </div>
@@ -243,7 +243,7 @@ export function CreationModal({ onClose, onCreated }) {
               <div style={{ marginBottom: 28 }}>
                 <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 12 }}>
                   <label style={{ ...labelStyle, marginBottom: 0 }}>Ressources & documents</label>
-                  <button onClick={() => setRessources(r => [...r, { id: Date.now(), label: "" }])} style={{ display: "flex", alignItems: "center", gap: 5, padding: "5px 12px", borderRadius: 8, border: "none", background: "#7c3aed", color: "#fff", fontSize: 11, fontWeight: 700, cursor: "pointer", fontFamily: "inherit" }}>
+                  <button onClick={() => setRessources(r => [...r, { id: Date.now(), label: "" }])} style={{ display: "flex", alignItems: "center", gap: 5, padding: "5px 12px", borderRadius: 8, border: "none", background: "#7c3aed", color: "#fff", fontSize: 11, fontWeight: 700, cursor: "pointer", fontFamily: "'Plus Jakarta Sans'" }}>
                     <Svg d={IC.plus} size={12} color="#fff" /> Ajouter
                   </button>
                 </div>
@@ -274,10 +274,10 @@ export function CreationModal({ onClose, onCreated }) {
               </div>
 
               <div style={{ display: "flex", gap: 10 }}>
-                <button onClick={() => setPhase(1)} style={{ flex: 1, padding: 11, borderRadius: 12, border: "1.5px solid #e0daf5", background: "none", fontSize: 14, cursor: "pointer", color: "#666", fontFamily: "inherit" }}>
+                <button onClick={() => setPhase(1)} style={{ flex: 1, padding: 11, borderRadius: 12, border: "1.5px solid #e0daf5", background: "none", fontSize: 14, cursor: "pointer", color: "#666", fontFamily: "'Plus Jakarta Sans'" }}>
                   ← Retour
                 </button>
-                <button onClick={handleSubmit} style={{ flex: 2, padding: 11, borderRadius: 12, border: "none", background: "linear-gradient(135deg,#7c3aed,#9d5cf5)", fontSize: 14, cursor: "pointer", color: "#fff", fontWeight: 700, fontFamily: "inherit" }}>
+                <button onClick={handleSubmit} style={{ flex: 2, padding: 11, borderRadius: 12, border: "none", background: "linear-gradient(135deg,#7c3aed,#9d5cf5)", fontSize: 14, cursor: "pointer", color: "#fff", fontWeight: 700, fontFamily: "'Plus Jakarta Sans'" }}>
                   Créer la SAE ✓
                 </button>
               </div>
@@ -312,7 +312,7 @@ export default function SAEList() {
           ].map(f => (
             <button key={f.val} onClick={() => setFiltre(f.val)} style={{
               padding: "7px 16px", borderRadius: 20, fontSize: 12,
-              cursor: "pointer", fontFamily: "inherit", fontWeight: 500,
+              cursor: "pointer", fontFamily: "'Plus Jakarta Sans'", fontWeight: 500,
               background: filtre === f.val ? "#7c3aed" : "#fff",
               color:      filtre === f.val ? "#fff"    : "#666",
               border:     filtre === f.val ? "none"    : "1px solid #e0daf5",
@@ -322,7 +322,7 @@ export default function SAEList() {
             </button>
           ))}
         </div>
-        <button onClick={() => setShowModal(true)} style={{ display: "flex", alignItems: "center", gap: 8, padding: "9px 18px", borderRadius: 12, border: "none", background: "linear-gradient(135deg,#7c3aed,#9d5cf5)", color: "#fff", fontSize: 13, fontWeight: 700, cursor: "pointer", fontFamily: "inherit" }}>
+        <button onClick={() => setShowModal(true)} style={{ display: "flex", alignItems: "center", gap: 8, padding: "9px 18px", borderRadius: 12, border: "none", background: "linear-gradient(135deg,#7c3aed,#9d5cf5)", color: "#fff", fontSize: 13, fontWeight: 700, cursor: "pointer", fontFamily: "'Plus Jakarta Sans'" }}>
           <Svg d={IC.plus} size={16} color="#fff" />
           Nouvelle SAE
         </button>

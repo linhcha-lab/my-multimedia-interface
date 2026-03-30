@@ -18,6 +18,7 @@ import Login from "../pages/auth/Login"
 // ── Pages enseignant ─────────────────────────────────────────
 import TeacherDashboard from "../pages/teacher/Dashboard"
 import SAEList from "../pages/teacher/SAEList"
+import SAEDetail from "../pages/teacher/SAEDetail_teacher"
 import Students from "../pages/teacher/Students"
 import Announcements from "../pages/teacher/Announcements"
 import Messaging from "../pages/teacher/Messaging"
@@ -77,6 +78,7 @@ export default function AppRoutes() {
       {/* ── Enseignant ── */}
       <Route path="/teacher/dashboard" element={<TeacherDashboard />} />
       <Route path="/teacher/saes" element={<SAEList />} />
+      <Route path="/teacher/saes/:id" element={<SAEDetail />} />  
       <Route path="/teacher/students" element={<Students />} />
       <Route path="/teacher/announce" element={<Announcements />} />
       <Route path="/teacher/messages" element={<Messaging />} />

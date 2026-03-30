@@ -14,9 +14,9 @@ const GLOBAL_STYLE = `
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
-  body { font-family: 'DM Sans', sans-serif; background: #f5f4f8; color: #221A47; }
-  button { font-family: 'DM Sans', sans-serif; cursor: pointer; border: none; }
-  input, textarea, select { font-family: 'DM Sans', sans-serif; }
+  body { font-family: ''Plus Jakarta Sans', sans-serif; background: #f5f4f8; color: #221A47; }
+  button { font-family: 'Plus Jakarta Sans', sans-serif; cursor: pointer; border: none; }
+  input, textarea, select { font-family: 'Plus Jakarta Sans', sans-serif; }
 
   @keyframes fadeSlideUp {
     from { opacity: 0; transform: translateY(18px); }
@@ -190,7 +190,7 @@ function sliderToColor(val) {
 function SectionLabel({ children, required }) {
   return (
     <div style={{
-      fontFamily: "'Syne', sans-serif",
+      fontFamily: "'Payton One', sans-serif",
       fontWeight: 800, fontSize: 17, color: "#221A47",
       marginBottom: 18, display: "flex", alignItems: "center", gap: 6,
     }}>
@@ -350,7 +350,7 @@ export default function PublierSAE() {
             fontSize: 32, boxShadow: "0 12px 36px rgba(124,58,237,.35)",
             animation: "pulse 1.5s infinite",
           }}>✓</div>
-          <h2 style={{ fontFamily: "'Syne',sans-serif", fontWeight: 900, fontSize: 24, color: "#221A47" }}>
+          <h2 style={{ fontFamily: "'Payton One',sans-serif", fontWeight: 900, fontSize: 24, color: "#221A47" }}>
             SAE soumise pour vérification !
           </h2>
           <p style={{ color: "#888", fontSize: 14 }}>Redirection en cours…</p>
@@ -388,7 +388,7 @@ export default function PublierSAE() {
 
           {semestre && (
             <div style={{ marginTop: 22 }}>
-              <div style={{ fontFamily: "'Syne',sans-serif", fontWeight: 700, fontSize: 14, color: "#221A47", marginBottom: 12 }}>SAE</div>
+              <div style={{ fontFamily: "'Payton One',sans-serif", fontWeight: 700, fontSize: 14, color: "#221A47", marginBottom: 12 }}>SAE</div>
               <div style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
                 {SAE_PAR_SEMESTRE[semestre].map(sae => (
                   <div key={sae} className="chip-sae">
@@ -453,7 +453,7 @@ export default function PublierSAE() {
                 width: 38, height: 38, borderRadius: "50%",
                 background: "linear-gradient(135deg,#7c3aed,#a78bfa)",
                 display: "flex", alignItems: "center", justifyContent: "center",
-                fontFamily: "'Syne',sans-serif", fontWeight: 900, color: "#fff", fontSize: 16, flexShrink: 0,
+                fontFamily: "'Payton One',sans-serif", fontWeight: 900, color: "#fff", fontSize: 16, flexShrink: 0,
               }}>{MOI.initiale}</div>
               <div>
                 <div style={{ fontWeight: 700, fontSize: 14, color: "#221A47" }}>{MOI.nom}</div>
@@ -461,7 +461,7 @@ export default function PublierSAE() {
               </div>
             </div>
 
-            <div style={{ display: "flex", alignItems: "center", fontFamily: "'Syne',sans-serif", fontWeight: 700, fontSize: 15, color: "#aaa", paddingTop: 14 }}>ou</div>
+            <div style={{ display: "flex", alignItems: "center", fontFamily: "'Payton One',sans-serif", fontWeight: 700, fontSize: 15, color: "#aaa", paddingTop: 14 }}>ou</div>
 
             <div style={{ flex: 1, minWidth: 200 }}>
               <div className="etudiant-choice" onClick={() => setChoixAuteur("groupe")} style={{
@@ -484,7 +484,7 @@ export default function PublierSAE() {
                     borderRadius: 30, border: "2px solid #7c3aed",
                     background: "#7c3aed", color: "#fff",
                     fontSize: 13, fontWeight: 700, cursor: "pointer",
-                    appearance: "none", outline: "none", fontFamily: "'DM Sans',sans-serif",
+                    appearance: "none", outline: "none", fontFamily: "'Plus Jakarta Sans',sans-serif",
                   }}>
                   {GROUPES.map(g => <option key={g.id} value={g.id}>{g.nom}</option>)}
                 </select>
@@ -519,7 +519,7 @@ export default function PublierSAE() {
               <div style={{
                 padding: "12px 28px", borderRadius: 30,
                 background: bgColor, color: textColor,
-                fontSize: 15, fontWeight: 700, fontFamily: "'Syne',sans-serif",
+                fontSize: 15, fontWeight: 700, fontFamily: "'Payton One',sans-serif",
                 boxShadow: `0 6px 20px ${bgColor}66`, transition: "background .1s, color .1s",
                 letterSpacing: .3, border: "2px solid rgba(255,255,255,.3)",
               }}>
@@ -624,7 +624,7 @@ export default function PublierSAE() {
                 resize: "vertical",
                 outline: errors.description ? "2px solid #ef4444" : "2px solid transparent",
                 transition: "outline .15s",
-                fontFamily: "'DM Sans', sans-serif",
+                fontFamily: "'Plus Jakarta Sans', sans-serif",
               }}
             />
             <span style={{
@@ -644,7 +644,7 @@ export default function PublierSAE() {
         ════════════════════════════════ */}
         <SectionCard>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 18 }}>
-            <div style={{ fontFamily: "'Syne',sans-serif", fontWeight: 800, fontSize: 17, color: "#221A47", display: "flex", alignItems: "center", gap: 8 }}>
+            <div style={{ fontFamily: "'Payton One',sans-serif", fontWeight: 800, fontSize: 17, color: "#221A47", display: "flex", alignItems: "center", gap: 8 }}>
               Livrable PDF
               <span style={{ fontSize: 12, fontWeight: 600, color: "#888", background: "#f5f4f8", padding: "3px 10px", borderRadius: 20 }}>facultatif</span>
             </div>
