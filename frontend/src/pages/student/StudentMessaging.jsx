@@ -81,7 +81,7 @@ function NouvelleConvModal({ onClose, onStart, existingNames }) {
       >
         {/* Header modale */}
         <div style={{ padding: "20px 20px 14px", borderBottom: "1px solid #f0edf8", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-          <h3 style={{ fontFamily: "'Syne',sans-serif", fontWeight: 800, fontSize: 16, color: "#1a1a2e", margin: 0 }}>
+          <h3 style={{ fontFamily: "'Payton One',sans-serif", fontWeight: 800, fontSize: 16, color: "#1a1a2e", margin: 0 }}>
             Nouvelle conversation
           </h3>
           <button onClick={onClose} style={{ background: "none", border: "none", cursor: "pointer", color: "#aaa", fontSize: 22, lineHeight: 1 }}>×</button>
@@ -103,7 +103,7 @@ function NouvelleConvModal({ onClose, onStart, existingNames }) {
               style={{
                 width: "100%", padding: "9px 12px 9px 34px", borderRadius: 10,
                 border: "1.5px solid #e0daf5", fontSize: 13, outline: "none",
-                fontFamily: "inherit", boxSizing: "border-box", color: "#2d2d4e",
+                fontFamily: "Plus Jakarta Sans", boxSizing: "border-box", color: "#2d2d4e",
               }}
             />
           </div>
@@ -235,7 +235,7 @@ export default function StudentMessaging() {
             <div style={{ padding: "16px 16px 12px", borderBottom: "1px solid #f0edf8" }}>
               <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 12 }}>
                 <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                  <span style={{ fontFamily: "'Syne',sans-serif", fontSize: 15, fontWeight: 800, color: "#1a1a2e" }}>
+                  <span style={{ fontFamily: "'Payton One',sans-serif", fontSize: 15, fontWeight: 800, color: "#1a1a2e" }}>
                     Conversations
                   </span>
                   {nbUnread > 0 && (
@@ -278,7 +278,7 @@ export default function StudentMessaging() {
                   style={{
                     width: "100%", padding: "8px 10px 8px 30px", borderRadius: 9,
                     border: "1.5px solid #e0daf5", fontSize: 12, outline: "none",
-                    fontFamily: "inherit", color: "#2d2d4e", boxSizing: "border-box",
+                    fontFamily: "Plus Jakarta Sans", color: "#2d2d4e", boxSizing: "border-box",
                   }}
                   onFocus={e => e.target.style.borderColor = "#7c3aed"}
                   onBlur={e => e.target.style.borderColor = "#e0daf5"}
@@ -301,7 +301,7 @@ export default function StudentMessaging() {
                     style={{
                       flex: 1, padding: "6px 4px", borderRadius: 8,
                       border: "none", fontSize: 11, fontWeight: 600,
-                      cursor: "pointer", transition: "all .15s", fontFamily: "inherit",
+                      cursor: "pointer", transition: "all .15s", fontFamily: "Plus Jakarta Sans",
                       background: filtre === f.key ? "#7c3aed" : "#f4f0fb",
                       color:      filtre === f.key ? "#fff"    : "#7c3aed",
                     }}
@@ -442,7 +442,7 @@ export default function StudentMessaging() {
                 style={{
                   flex: 1, padding: "10px 14px", borderRadius: 12,
                   border: "1.5px solid #e0daf5", fontSize: 13,
-                  outline: "none", fontFamily: "inherit", color: "#2d2d4e",
+                  outline: "none", fontFamily: "Plus Jakarta Sans", color: "#2d2d4e",
                   transition: "border-color .15s",
                 }}
                 onFocus={e => e.target.style.borderColor = "#7c3aed"}
@@ -469,7 +469,7 @@ export default function StudentMessaging() {
               <div style={{ fontSize: 48 }}>💬</div>
               <div style={{ fontSize: 15, fontWeight: 600, color: "#555" }}>Sélectionne une conversation</div>
               <div style={{ fontSize: 13, color: "#bbb" }}>ou crée-en une nouvelle</div>
-              <button onClick={() => setShowModal(true)} style={{ marginTop: 8, padding: "10px 22px", borderRadius: 10, border: "none", background: "#7c3aed", color: "#fff", fontSize: 13, fontWeight: 700, cursor: "pointer", fontFamily: "inherit" }}>
+              <button onClick={() => setShowModal(true)} style={{ marginTop: 8, padding: "10px 22px", borderRadius: 10, border: "none", background: "#7c3aed", color: "#fff", fontSize: 13, fontWeight: 700, cursor: "pointer", fontFamily: "Plus Jakarta Sans" }}>
                 + Nouvelle conversation
               </button>
             </div>

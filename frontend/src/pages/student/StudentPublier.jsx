@@ -412,7 +412,7 @@ export default function PublierSAE() {
             2. TITRE
         ════════════════════════════════ */}
         <SectionCard>
-          <SectionLabel required>Titre de la SAE</SectionLabel>
+          <SectionLabel required>Titre de mon projet</SectionLabel>
           <div style={{ position: "relative" }}>
             <input type="text" value={titre}
               onChange={e => setTitre(e.target.value.slice(0, 60))}

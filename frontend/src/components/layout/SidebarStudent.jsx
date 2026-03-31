@@ -10,6 +10,7 @@ import { useNavigate, useLocation } from "react-router-dom"
 import { Svg, IC } from "../common/Icons"
 import { NAV_ITEMS_STUDENT } from "../../data/mockData"
 import { useWindowWidth, BP } from "../../hooks/useWindowWidth"
+import Logo from "../../assets/logodark.png";
 
 export default function SidebarStudent({ open, onClose }) {
   const navigate = useNavigate()
@@ -43,25 +44,41 @@ export default function SidebarStudent({ open, onClose }) {
         flexShrink: 0, overflowY: "auto",
       }}>
 
-        {/* Logo */}
-        <div style={{ padding: "0 18px 26px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 10, cursor: "pointer" }}
-            onClick={() => navigate("/student/dashboard")}>
-            <div style={{ width: 36, height: 36, borderRadius: 10, background: "linear-gradient(135deg,#7c3aed,#c8f000)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-              <span style={{ fontSize: 16, fontWeight: 900, color: "#fff", fontFamily: "'Payton One',sans-serif" }}>M</span>
-            </div>
-            <div>
-              <div style={{ fontSize: 10, fontWeight: 800, color: "#7c3aed", fontFamily: "'Payton One',sans-serif" }}>My</div>
-              <div style={{ fontSize: 9, fontWeight: 600, color: "#2d2d4e", lineHeight: 1.3 }}>Multimedia<br />Interface</div>
-            </div>
-          </div>
-          {isMobile && (
-            <button onClick={onClose} style={{ background: "none", border: "none", cursor: "pointer", color: "#aaa" }}>
-              <Svg d={IC.x} size={20} />
-            </button>
-          )}
-        </div>
-
+         {/* ── Logo ── */}
+               {/* ── Logo ── */}
+       <div
+         style={{
+           padding: "0 18px 26px",
+           display: "flex",
+           alignItems: "center",
+           justifyContent: "space-between",
+         }}
+       >
+         <img
+           src={Logo}
+           alt="My Multimedia Interface"
+           style={{
+             height: isMobile ? 90 : 60, // ← réduit la hauteur sur PC
+             maxHeight: 100,             // ← limite même si écran très grand
+             width: "auto",
+             objectFit: "contain",
+             display: "block",
+             cursor: "pointer"
+           }}
+           onClick={() => navigate("/teacher/dashboard")}
+         />
+       
+         {/* Bouton × sur mobile */}
+         {isMobile && (
+           <button
+             onClick={onClose}
+             style={{ background: "none", border: "none", cursor: "pointer", color: "#aaa" }}
+           >
+             <Svg d={IC.x} size={20} />
+           </button>
+         )}
+       </div>
+       
         {/* Liens */}
         <nav style={{ flex: 1, padding: "0 10px" }}>
           {NAV_ITEMS_STUDENT.map(item => {

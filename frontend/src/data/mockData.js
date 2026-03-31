@@ -83,7 +83,7 @@ export const NAV_ITEMS_STUDENT = [
   { id: "annonces",   label: "Annonces",               icon: "announce", badge: 5 },
   { id: "publier",    label: "Publier une SAE",        icon: "plus"     },
   { id: "messages",   label: "Messagerie",             icon: "message"  },
-  { id: "contact",    label: "Contacter un enseignant",icon: "students" },
+  // { id: "contact",    label: "Contacter un enseignant",icon: "students" },
   { id: "settings",   label: "Paramètres",             icon: "settings" },
 ]
 

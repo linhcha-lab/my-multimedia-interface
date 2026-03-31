@@ -13,7 +13,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { Svg, IC } from "../common/Icons";
 import { NAV_ITEMS } from "../../data/mockData";
 import { useWindowWidth, BP } from "../../hooks/useWindowWidth";
-import Logo from "../../assets/logo.png";
+import Logo from "../../assets/logodark.png";
 
 export default function Sidebar({ open, onClose }) {
   const navigate  = useNavigate();
