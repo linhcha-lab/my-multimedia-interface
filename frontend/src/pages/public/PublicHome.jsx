@@ -167,7 +167,7 @@ function ProjetCard({ projet, delay = 0 }) {
       <div style={{ height:250,borderRadius:10,overflow:"hidden",marginBottom:16 }}>
         <Illus />
       </div>
-      <div style={{ fontFamily:"'Syne',sans-serif",fontSize:18,fontWeight:900,color:C.navy,marginBottom:3,lineHeight:1.2 }}>{projet.titre}</div>
+      <div style={{ fontFamily:"'Payton One',sans-serif",fontSize:18,fontWeight:900,color:C.navy,marginBottom:3,lineHeight:1.2 }}>{projet.titre}</div>
       <div style={{ fontSize:12,color:"#3d3360",marginBottom:2,fontWeight:500 }}>{projet.auteur}</div>
       <div style={{ fontSize:12,color:"#7a6a9a",marginBottom:16 }}>{projet.date}</div>
       <button className="btn-dark" style={{ background:C.navy,color:"#fff",border:"none",borderRadius:30,padding:"9px 24px",fontSize:13,fontWeight:700,transition:"opacity .15s",letterSpacing:.3 }}>
@@ -181,7 +181,7 @@ function ProjetCard({ projet, delay = 0 }) {
 function SectionMMI({ isMobile, isTablet }) {
   return (
     <section style={{ background:C.violet, padding: isMobile?"60px 20px 56px":isTablet?"64px 36px 60px":"72px 60px 68px" }}>
-      <h2 style={{ fontFamily:"'Syne',sans-serif",fontSize:isMobile?22:30,fontWeight:900,color:"#fff",textAlign:"center",marginBottom:isMobile?28:40,lineHeight:1.25 }}>
+      <h2 style={{ fontFamily:"'Payton One',sans-serif",fontSize:isMobile?22:30,fontWeight:900,color:"#fff",textAlign:"center",marginBottom:isMobile?28:40,lineHeight:1.25 }}>
         Mais MMI, c'est quoi en fait ?
       </h2>
 
@@ -193,14 +193,14 @@ function SectionMMI({ isMobile, isTablet }) {
           <div style={{ minWidth:130 }}>
             {[{ l:"M",w:"étiers" },{ l:"M",w:"ultimedia" },{ l:"I",w:"nternet" }].map(({ l, w }) => (
               <div key={w} style={{ display:"flex",alignItems:"baseline",gap:2,lineHeight:1.5 }}>
-                <span style={{ fontFamily:"'Syne',sans-serif",fontWeight:900,fontSize:22,color:C.violet }}>{l}</span>
-                <span style={{ fontFamily:"'Syne',sans-serif",fontWeight:700,fontSize:15,color:C.navy }}>{w}</span>
+                <span style={{ fontFamily:"'Payton One',sans-serif",fontWeight:900,fontSize:22,color:C.violet }}>{l}</span>
+                <span style={{ fontFamily:"'Payton One',sans-serif",fontWeight:700,fontSize:15,color:C.navy }}>{w}</span>
               </div>
             ))}
           </div>
 
           {/* Badge 3 ans */}
-          <div style={{ background:C.jaune,borderRadius:14,padding:"14px 24px",fontFamily:"'Syne',sans-serif",fontWeight:900,color:C.navy,display:"flex",alignItems:"center",gap:10,whiteSpace:"nowrap",boxShadow:"0 4px 14px rgba(212,255,0,.4)" }}>
+          <div style={{ background:C.jaune,borderRadius:14,padding:"14px 24px",fontFamily:"'Payton One',sans-serif",fontWeight:900,color:C.navy,display:"flex",alignItems:"center",gap:10,whiteSpace:"nowrap",boxShadow:"0 4px 14px rgba(212,255,0,.4)" }}>
             <span style={{ fontSize:15 }}>Un diplôme sur</span>
             <span style={{ fontSize:56,lineHeight:1 }}>3</span>
             <span style={{ fontSize:15 }}>ans</span>
@@ -230,7 +230,7 @@ function SectionMMI({ isMobile, isTablet }) {
       {/* Mini-cartes */}
       <div style={{ display:"grid",gridTemplateColumns:isMobile?"1fr":"1fr 1fr",gap:16,maxWidth:800,margin:"0 auto" }}>
         <div style={{ background:"#fff",borderRadius:18,padding:isMobile?22:30,boxShadow:"0 8px 28px rgba(0,0,0,.1)" }}>
-          <div style={{ fontFamily:"'Syne',sans-serif",fontWeight:800,fontSize:18,color:C.navy,marginBottom:22,lineHeight:1.3,textAlign:"center" }}>
+          <div style={{ fontFamily:"'Payton One',sans-serif",fontWeight:800,fontSize:18,color:C.navy,marginBottom:22,lineHeight:1.3,textAlign:"center" }}>
             Une formation<br />professionnalisante
           </div>
           <div style={{ display:"flex",gap:12,justifyContent:"center",flexWrap:"wrap" }}>
@@ -239,7 +239,7 @@ function SectionMMI({ isMobile, isTablet }) {
           </div>
         </div>
         <div style={{ background:"#fff",borderRadius:18,padding:isMobile?22:30,boxShadow:"0 8px 28px rgba(0,0,0,.1)" }}>
-          <div style={{ fontFamily:"'Syne',sans-serif",fontWeight:800,fontSize:18,color:C.navy,marginBottom:22,lineHeight:1.3 }}>
+          <div style={{ fontFamily:"'Payton One',sans-serif",fontWeight:800,fontSize:18,color:C.navy,marginBottom:22,lineHeight:1.3 }}>
             Des opportunités rêvées
           </div>
           <div style={{ display:"flex",alignItems:"center",gap:10,flexWrap:"wrap" }}>
@@ -265,7 +265,7 @@ function SectionFAQ({ isMobile }) {
       <div style={{ display:"grid",gridTemplateColumns:isMobile?"1fr":"200px 1fr",gap:isMobile?48:64,maxWidth:920,margin:"0 auto",alignItems:"end" }}>
 
         <div style={{ display:"flex",alignItems:isMobile?"center":"flex-end",justifyContent:isMobile?"center":"flex-start",paddingBottom:isMobile?0:16,order:isMobile?2:1 }}>
-          <span style={{ fontFamily:"'Syne',sans-serif",fontSize:isMobile?90:140,fontWeight:900,color:"#fff",lineHeight:0.82,letterSpacing:-7,userSelect:"none" }}>FAQ</span>
+          <span style={{ fontFamily:"'Payton One',sans-serif",fontSize:isMobile?90:140,fontWeight:900,color:"#fff",lineHeight:0.82,letterSpacing:-7,userSelect:"none" }}>FAQ</span>
         </div>
 
         <div style={{ order:isMobile?1:2 }}>
@@ -275,7 +275,7 @@ function SectionFAQ({ isMobile }) {
                 <button onClick={() => setOpenIdx(openIdx===i?null:i)} style={{ width:"100%",display:"flex",alignItems:"center",justifyContent:"space-between",background:"none",border:"none",gap:12,padding:"10px 14px 10px 10px" }}>
                   <span style={{ display:"flex",alignItems:"center",gap:10 }}>
                     <span style={{ width:26,height:26,borderRadius:"50%",background:C.violet,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0 }}>
-                      <span style={{ color:"#fff",fontWeight:900,fontFamily:"'Syne',sans-serif",fontSize:11 }}>M</span>
+                      <span style={{ color:"#fff",fontWeight:900,fontFamily:"'Payton One',sans-serif",fontSize:11 }}>M</span>
                     </span>
                     <span style={{ fontSize:isMobile?12:13,color:C.navy,fontWeight:500,textAlign:"left",lineHeight:1.4 }}>{q}</span>
                   </span>
@@ -291,8 +291,8 @@ function SectionFAQ({ isMobile }) {
           </div>
 
           <div style={{ background:C.jaune,borderRadius:18,padding:"22px 22px 58px",position:"relative" }}>
-            <div style={{ fontFamily:"'Syne',sans-serif",fontWeight:800,fontSize:16,color:C.navy,marginBottom:14 }}>Une question ? ....</div>
-            <textarea placeholder="Écrivez votre question ici..." rows={4} style={{ width:"100%",border:"none",background:"transparent",fontSize:13,fontFamily:"'DM Sans',sans-serif",resize:"none",color:C.navy,outline:"none" }} />
+            <div style={{ fontFamily:"'Payton One',sans-serif",fontWeight:800,fontSize:16,color:C.navy,marginBottom:14 }}>Une question ? ....</div>
+            <textarea placeholder="Écrivez votre question ici..." rows={4} style={{ width:"100%",border:"none",background:"transparent",fontSize:13,fontFamily:"'Plus Jakarta Sans',sans-serif",resize:"none",color:C.navy,outline:"none" }} />
             <button style={{ position:"absolute",bottom:16,right:16,width:34,height:34,borderRadius:9,border:`1.5px solid rgba(34,26,71,.25)`,background:"transparent",display:"flex",alignItems:"center",justifyContent:"center",color:C.navy,fontSize:16 }}>↗</button>
           </div>
         </div>
@@ -398,8 +398,8 @@ export default function PublicHome() {
           />
           {/* Fallback texte */}
           <div style={{ display:"none",alignItems:"center",justifyContent:"center",gap:8 }}>
-            <div style={{ fontFamily:"'Syne',sans-serif",fontWeight:900,fontSize:isMobile?46:60,color:"#fff",lineHeight:1 }}>M</div>
-            <div style={{ fontFamily:"'Syne',sans-serif",color:"#fff",lineHeight:1.28,textAlign:"left",paddingTop:4 }}>
+            <div style={{ fontFamily:"'Payton One',sans-serif",fontWeight:900,fontSize:isMobile?46:60,color:"#fff",lineHeight:1 }}>M</div>
+            <div style={{ fontFamily:"'Payton One',sans-serif",color:"#fff",lineHeight:1.28,textAlign:"left",paddingTop:4 }}>
               <div style={{ fontSize:isMobile?11:14,fontWeight:700,fontStyle:"italic" }}>y</div>
               <div style={{ fontSize:isMobile?11:14,fontWeight:700 }}>Multimedia<br/>Interface</div>
             </div>
@@ -420,7 +420,7 @@ export default function PublicHome() {
           HERO
       ════════════════════════════════════ */}
       <section style={{ background:C.violet, padding:isMobile?"32px 24px 52px":"36px 80px 64px", textAlign:"center" }}>
-        <h1 style={{ fontFamily:"'Syne',sans-serif",fontSize:isMobile?22:isTablet?28:36,fontWeight:900,color:"#fff",lineHeight:1.35,maxWidth:580,margin:"0 auto" }}>
+        <h1 style={{ fontFamily:"'Payton One',sans-serif",fontSize:isMobile?22:isTablet?28:36,fontWeight:900,color:"#fff",lineHeight:1.35,maxWidth:580,margin:"0 auto" }}>
           <span style={{ color:C.jaune,fontSize:isMobile?38:54,lineHeight:0.7,display:"inline-block",verticalAlign:"middle",marginRight:4 }}>"</span>
           {" "}Découvrez les projets des étudiants en BUT Métiers du Multimédia et de l'Internet.
         </h1>
@@ -430,7 +430,7 @@ export default function PublicHome() {
           PROJETS RÉCENTS
       ════════════════════════════════════ */}
       <section style={{ background:C.violet, padding:isMobile?"0 20px 72px":"0 44px 90px" }}>
-        <h2 style={{ fontFamily:"'Syne',sans-serif",fontSize:isMobile?18:22,fontWeight:800,color:"#fff",marginBottom:isMobile?22:30 }}>
+        <h2 style={{ fontFamily:"'Payton One',sans-serif",fontSize:isMobile?18:22,fontWeight:800,color:"#fff",marginBottom:isMobile?22:30 }}>
           Les projets récents
         </h2>
 
@@ -457,7 +457,7 @@ export default function PublicHome() {
           CTA
       ════════════════════════════════════ */}
       <section style={{ background:"#5b21b6",padding:isMobile?"72px 20px":"90px 44px",textAlign:"center",position:"relative",overflow:"hidden",minHeight:isMobile?220:290,display:"flex",alignItems:"center",justifyContent:"center" }}>
-        {!isTablet && [
+        {/* {!isTablet && [
           {l:"2%",t:"2%",  w:78,h:108,deg:"-14deg"},{l:"9%",t:"44%", w:62,h:88, deg:"9deg"},
           {l:"17%",t:"-8%",w:70,h:98, deg:"-5deg"},{l:"26%",t:"30%", w:56,h:76, deg:"5deg"},
           {r:"2%",t:"4%",  w:78,h:108,deg:"13deg"}, {r:"10%",t:"46%",w:62,h:88, deg:"-8deg"},
@@ -466,8 +466,8 @@ export default function PublicHome() {
           <div key={i} style={{ position:"absolute",left:s.l,right:s.r,top:s.t,width:s.w,height:s.h,background:"rgba(255,255,255,.07)",borderRadius:10,transform:`rotate(${s.deg})` }}>
             <div style={{ width:"100%",height:"56%",background:"rgba(255,255,255,.05)",borderRadius:"8px 8px 0 0" }} />
           </div>
-        ))}
-        <button className="btn-yellow" onClick={() => navigate("/public/projets")} style={{ position:"relative",zIndex:2,background:C.jaune,color:C.navy,border:"none",borderRadius:40,padding:isMobile?"15px 42px":"18px 58px",fontSize:isMobile?15:18,fontWeight:800,fontFamily:"'Syne',sans-serif",boxShadow:"0 6px 24px rgba(0,0,0,.22)",transition:"transform .18s cubic-bezier(.34,1.56,.64,1)",letterSpacing:.3 }}>
+        ))} */}
+        <button className="btn-yellow" onClick={() => navigate("/public/projets")} style={{ position:"relative",zIndex:2,background:C.jaune,color:C.navy,border:"none",borderRadius:40,padding:isMobile?"15px 42px":"18px 58px",fontSize:isMobile?15:18,fontWeight:800,fontFamily:"'Payton One',sans-serif",boxShadow:"0 6px 24px rgba(0,0,0,.22)",transition:"transform .18s cubic-bezier(.34,1.56,.64,1)",letterSpacing:.3 }}>
           Voir tous les projets
         </button>
       </section>
