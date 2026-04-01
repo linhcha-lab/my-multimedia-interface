@@ -88,6 +88,7 @@ student_sae_show:
 
 api_login:
     path: /api/login
+    controller: App\Controller\LoginController::login
     methods: [POST]
 
 projects_list:
@@ -104,3 +105,8 @@ project_create:
     path: /api/projects
     controller: App\Controller\Public\ProjectController::create
     methods: [POST]
+
+api_tags:
+  path: /api/tags
+  controller: App\Controller\TagController::list
+  methods: [GET]

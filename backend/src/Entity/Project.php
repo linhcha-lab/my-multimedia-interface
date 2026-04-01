@@ -40,11 +40,15 @@ class Project
     #[ORM\JoinColumn(nullable: false)]
     private ?SAEInstance $saeInstance = null;
 
+    
+
     /**
      * @var Collection<int, Tag>
      */
-    #[ORM\ManyToMany(targetEntity: Tag::class)]
+    #[ORM\ManyToMany(targetEntity: Tag::class, inversedBy: 'projects')]
+    #[ORM\JoinTable(name: 'project_tag')]
     private Collection $tags;
+
 
     #[ORM\OneToMany(mappedBy: 'project', targetEntity: ProjectImage::class)]
     private Collection $projectImages;
@@ -152,6 +156,7 @@ class Project
     public function getTags(): Collection
     {
         return $this->tags;
+        
     }
 
     public function addTag(Tag $tag): static

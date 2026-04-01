@@ -10,24 +10,49 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
+use App\Repository\ProjectRepository;
 
 class ProjectController extends AbstractController
 {
     // 🔥 LISTE DES PROJETS
-    #[Route('/api/projects', methods: ['GET'])]
-    public function list(EntityManagerInterface $em): JsonResponse
-    {
-        $projects = $em->getRepository(Project::class)->findAll();
+   #[Route('/api/projects', name: 'api_projects', methods: ['GET'])]
+public function list(ProjectRepository $repo): JsonResponse
+{
+    $projects = $repo->findAll();
 
-        $data = array_map(fn($p) => [
-            'id' => $p->getId(),
-            'title' => $p->getTitle(),
-            'description' => $p->getDescription(),
-            'status' => $p->getStatus(),
-        ], $projects);
+    $data = [];
 
-        return $this->json($data);
+    foreach ($projects as $project) {
+
+        // 🔥 IMAGES SAFE
+        $images = [];
+        foreach ($project->getProjectImages() as $img) {
+            if ($img && $img->getFilePath()) {
+                $images[] = rtrim($img->getFilePath(), "'"); // 🔥 nettoie ton bug BDD
+            }
+        }
+
+        $data[] = [
+            'id' => $project->getId(),
+            'title' => $project->getTitle(),
+            'description' => $project->getDescription(),
+            'status' => $project->getStatus(),
+
+            // TAGS
+            'tags' => array_map(function ($tag) {
+                return [
+                    'id' => $tag->getId(),
+                    'name' => $tag->getName(),
+                ];
+            }, $project->getTags()->toArray()),
+
+            // IMAGES SAFE
+            'images' => $images,
+        ];
     }
+
+    return $this->json($data);
+}
 
     // 🔥 DÉTAIL D’UN PROJET
     #[Route('/api/projects/{id}', methods: ['GET'])]
