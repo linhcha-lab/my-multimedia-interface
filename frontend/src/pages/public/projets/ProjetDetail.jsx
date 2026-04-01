@@ -23,7 +23,7 @@ const STYLE = `
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
-  body { font-family: 'DM Sans', sans-serif; }
+  body { font-family: 'Plus Jakarta Sans', sans-serif; }
 
   @keyframes titleIn {
     from { opacity: 0; transform: translateY(50px); }
@@ -62,8 +62,8 @@ function Header() {
     }}>
       {/* Logo — remplace par <img src="/assets/logo-mmi.png" /> */}
       <div onClick={() => navigate("/public")} style={{ cursor: "pointer", display: "flex", alignItems: "center", gap: 6 }}>
-        <span style={{ fontFamily: "'Syne',sans-serif", fontWeight: 900, fontSize: 32, color: "#7c3aed", lineHeight: 1 }}>M</span>
-        <div style={{ fontFamily: "'Syne',sans-serif", fontSize: 10, fontWeight: 700, color: "#221A47", lineHeight: 1.3 }}>
+        <span style={{ fontFamily: "'Payton One',sans-serif", fontWeight: 900, fontSize: 32, color: "#7c3aed", lineHeight: 1 }}>M</span>
+        <div style={{ fontFamily: "'Payton One',sans-serif", fontSize: 10, fontWeight: 700, color: "#221A47", lineHeight: 1.3 }}>
           <em style={{ fontStyle: "italic" }}>y</em><br/>Multimedia<br/>Interface
         </div>
       </div>
@@ -72,7 +72,7 @@ function Header() {
         width: 38, height: 38, borderRadius: "50%",
         background: "linear-gradient(135deg,#7c3aed,#a78bfa)",
         display: "flex", alignItems: "center", justifyContent: "center",
-        fontFamily: "'Syne',sans-serif", fontWeight: 900, color: "#fff", fontSize: 15,
+        fontFamily: "'Payton One',sans-serif", fontWeight: 900, color: "#fff", fontSize: 15,
         boxShadow: "0 4px 12px rgba(124,58,237,.3)", cursor: "pointer",
       }}>S</div>
     </header>
@@ -115,7 +115,7 @@ export default function ProjetDetail() {
           gap: 16, background: "#f5f4f8", paddingTop: 80,
         }}>
           <div style={{ fontSize: 56 }}>🔍</div>
-          <h2 style={{ fontFamily: "'Syne',sans-serif", fontWeight: 900, fontSize: 24, color: "#221A47" }}>
+          <h2 style={{ fontFamily: "'Payton One',sans-serif", fontWeight: 900, fontSize: 24, color: "#221A47" }}>
             Projet introuvable
           </h2>
           <p style={{ color: "#888", fontSize: 14 }}>Ce projet n'existe pas ou n'est plus disponible.</p>
@@ -152,7 +152,7 @@ export default function ProjetDetail() {
 
         {/* Titre énorme */}
         <h1 className="detail-title" style={{
-          fontFamily: "'Syne', sans-serif",
+          fontFamily: "'Payton One', sans-serif",
           fontWeight: 900,
           fontSize: "clamp(48px, 13vw, 130px)",
           color: couleurTexte,
@@ -222,7 +222,7 @@ export default function ProjetDetail() {
         padding: "clamp(48px, 8vw, 96px) clamp(20px, 10vw, 120px)",
       }}>
         <p style={{
-          fontFamily: "'DM Sans', sans-serif",
+          fontFamily: "'Plus Jakarta Sans', sans-serif",
           fontSize: "clamp(15px, 1.8vw, 18px)",
           lineHeight: 1.8,
           color: "#333",
@@ -238,7 +238,7 @@ export default function ProjetDetail() {
             marginTop: 36, padding: "13px 28px",
             background: couleurFond, color: couleurTexte,
             borderRadius: 30, fontSize: 14, fontWeight: 700,
-            textDecoration: "none", fontFamily: "'Syne',sans-serif",
+            textDecoration: "none", fontFamily: "'Payton One',sans-serif",
             boxShadow: `0 6px 20px ${couleurFond}66`,
           }}>
             📄 Voir le livrable PDF

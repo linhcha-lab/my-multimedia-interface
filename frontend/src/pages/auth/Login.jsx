@@ -33,7 +33,7 @@ export default function Login() {
     borderRadius: 10, border: "1.5px solid rgba(255,255,255,.3)",
     background: "rgba(255,255,255,.1)",
     fontSize: 14, outline: "none",
-    fontFamily: "'DM Sans',sans-serif",
+    fontFamily: "'Plus Jakarta Sans',sans-serif",
     color: "#fff", boxSizing: "border-box",
   }
 
@@ -57,7 +57,7 @@ export default function Login() {
           position: "absolute", top: 20, left: 20,
           background: "none", border: "none",
           color: "rgba(255,255,255,.6)", fontSize: 13,
-          cursor: "pointer", fontFamily: "inherit",
+          cursor: "pointer", fontFamily: "Plus Jakarta Sans",
           display: "flex", alignItems: "center", gap: 6,
         }}>
           ← Retour à l'accueil
@@ -65,7 +65,7 @@ export default function Login() {
 
         {/* Logo */}
         <div style={{
-          fontFamily: "'Syne',sans-serif", fontWeight: 900,
+          fontFamily: "'Payton One',sans-serif", fontWeight: 900,
           color: "#fff", textAlign: "center", marginBottom: 36, lineHeight: 1.15,
         }}>
           <span style={{ fontSize: 38, color: "#d4ff00" }}>M</span>
@@ -81,7 +81,7 @@ export default function Login() {
           width: "100%", maxWidth: 420,
           border: "1px solid rgba(255,255,255,.2)",
         }}>
-          <h1 style={{ fontFamily: "'Syne',sans-serif", fontSize: 24, fontWeight: 900, color: "#fff", marginBottom: 6 }}>
+          <h1 style={{ fontFamily: "'Payton One',sans-serif", fontSize: 24, fontWeight: 900, color: "#fff", marginBottom: 6 }}>
             Se connecter
           </h1>
           <p style={{ fontSize: 13, color: "rgba(255,255,255,.6)", marginBottom: 28 }}>
@@ -100,7 +100,7 @@ export default function Login() {
                 background: role === r.val ? "#d4ff00" : "transparent",
                 color: role === r.val ? "#221A47" : "rgba(255,255,255,.7)",
                 fontWeight: role === r.val ? 700 : 400,
-                fontSize: 13, cursor: "pointer", fontFamily: "inherit",
+                fontSize: 13, cursor: "pointer", fontFamily: "Plus Jakarta Sans",
                 transition: "all .15s",
               }}>
                 {r.label}
@@ -134,7 +134,7 @@ export default function Login() {
             width: "100%", padding: 13, borderRadius: 12, border: "none",
             background: "#d4ff00", color: "#221A47",
             fontSize: 15, fontWeight: 800, cursor: "pointer",
-            fontFamily: "'Syne',sans-serif", transition: "transform .15s",
+            fontFamily: "'Payton One',sans-serif", transition: "transform .15s",
           }}
             onMouseEnter={e => e.currentTarget.style.transform = "scale(1.02)"}
             onMouseLeave={e => e.currentTarget.style.transform = "none"}
