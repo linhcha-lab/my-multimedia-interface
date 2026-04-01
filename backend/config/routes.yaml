@@ -1,0 +1,106 @@
+controllers:
+    resource:
+        path: ../src/Controller/
+        namespace: App\Controller
+    type: attribute
+
+api_public_home:
+    path: /api/public/home
+    controller: App\Controller\Public\PublicController::home
+    methods: GET
+
+
+api_student_dashboard:
+    path: /api/student/dashboard
+    controller: App\Controller\Student\StudentDashboardController::dashboard
+    methods: GET
+
+
+api_task_toggle:
+    path: /api/student/task/{id}/toggle
+    controller: App\Controller\Student\TaskController::toggle
+    methods: POST
+
+upload:
+    path: /api/upload
+    controller: App\Controller\UploadController::upload
+    methods: [POST]
+
+dashboard_prof:
+    path: /api/dashboard/prof
+    controller: App\Controller\Prof\ProfDashboardController::index
+    methods: [GET]
+
+project_submit:
+    path: /api/projects/{id}/submit
+    controller: App\Controller\ProjectController::submit
+    methods: [POST]
+
+project_validate:
+    path: /api/projects/{id}/validate
+    controller: App\Controller\ProjectController::validate
+    methods: [POST]
+
+project_refuse:
+    path: /api/projects/{id}/refuse
+    controller: App\Controller\ProjectController::refuse
+    methods: [POST]
+
+messages_list:
+    path: /api/messages
+    controller: App\Controller\MessageController::list
+    methods: [GET]
+
+messages_send:
+    path: /api/messages
+    controller: App\Controller\MessageController::send
+    methods: [POST]
+
+notifications_list:
+    path: /api/notifications
+    controller: App\Controller\NotificationController::list
+    methods: [GET]
+
+notifications_read_all:
+    path: /api/notifications/read-all
+    controller: App\Controller\NotificationController::readAll
+    methods: [PATCH]
+
+question_send:
+    path: /api/questions
+    controller: App\Controller\QuestionController::send
+    methods: [POST]
+
+submission_upload:
+    path: /api/submissions/upload
+    controller: App\Controller\SubmissionController::upload
+    methods: [POST]
+
+student_sae_list:
+    path: /api/student/sae
+    controller: App\Controller\Student\StudentSAEController::list
+    methods: [GET]
+
+student_sae_show:
+    path: /api/student/sae/{id}
+    controller: App\Controller\Student\StudentSAEController::show
+    methods: [GET]
+
+api_login:
+    path: /api/login
+    methods: [POST]
+
+projects_list:
+    path: /api/projects
+    controller: App\Controller\ProjectController::list
+    methods: [GET]
+
+projects_show:
+    path: /api/projects/{id}
+    controller: App\Controller\ProjectController::show
+    methods: [GET]
+
+project_create:
+    path: /api/projects
+    controller: App\Controller\Public\ProjectController::create
+    methods: [POST]

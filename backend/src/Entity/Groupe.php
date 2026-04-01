@@ -1,0 +1,67 @@
+<?php
+
+namespace App\Entity;
+
+use App\Repository\GroupeRepository;
+use Doctrine\ORM\Mapping as ORM;
+
+#[ORM\Entity(repositoryClass: GroupeRepository::class)]
+class Groupe
+{
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column]
+    private ?int $id = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $name = null;
+
+    #[ORM\ManyToOne]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?SAEInstance $saeInstance = null;
+
+    #[ORM\ManyToOne]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?User $students = null;
+
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(string $name): static
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    public function getSaeInstance(): ?SAEInstance
+    {
+        return $this->saeInstance;
+    }
+
+    public function setSaeInstance(?SAEInstance $saeInstance): static
+    {
+        $this->saeInstance = $saeInstance;
+
+        return $this;
+    }
+
+    public function getStudents(): ?User
+    {
+        return $this->students;
+    }
+
+    public function setStudents(?User $students): static
+    {
+        $this->students = $students;
+
+        return $this;
+    }
+}
