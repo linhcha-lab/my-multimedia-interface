@@ -12,8 +12,8 @@ api_public_home:
 
 api_student_dashboard:
     path: /api/student/dashboard
-    controller: App\Controller\Student\StudentDashboardController::dashboard
-    methods: GET
+    controller: App\Controller\Student\StudentDashboardController::index
+    methods: [GET]
 
 
 api_task_toggle:
@@ -110,3 +110,10 @@ api_tags:
   path: /api/tags
   controller: App\Controller\TagController::list
   methods: [GET]
+
+api_announcements_list:
+    path: /api/announcements
+    controller: App\Controller\AnnouncementController::list
+    methods: [GET]
+
+
