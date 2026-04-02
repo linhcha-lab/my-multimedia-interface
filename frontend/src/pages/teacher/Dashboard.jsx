@@ -10,7 +10,6 @@ import { StatCard, GroupCard, MessageRow } from "../../components/dashboard/Dash
 import { Svg, IC } from "../../components/common/Icons"
 import { MESSAGES, GROUP_PROGRESS, QUICK_STATS } from "../../data/mockData"
 import { useWindowWidth, BP } from "../../hooks/useWindowWidth"
-import { CreationModal } from "./SAEList" // même modale que "Nouvelle SAE"
 
 export default function TeacherDashboard() {
   const [expandedMsg, setExpandedMsg] = useState(null)

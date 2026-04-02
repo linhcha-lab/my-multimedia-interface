@@ -54,29 +54,27 @@ export default function Login() {
       }
 
       // ── Succès : { success: true, user: { id, email, roles } }
-      const user = data.user
+      const token = data.token
 
-      // On détermine le rôle depuis les roles Symfony
-      // Symfony renvoie typiquement ["ROLE_STUDENT"] ou ["ROLE_TEACHER", "ROLE_USER"]
-      const isTeacher =
-        user.roles.includes("ROLE_TEACHER") ||
-        user.roles.includes("ROLE_PROF") ||
-        user.roles.includes("ROLE_ADMIN")
+// Stockage du token
+localStorage.setItem("token", token)
 
-      // Stockage localStorage pour les autres pages
-      localStorage.setItem("userId",    user.id)
-      localStorage.setItem("userEmail", user.email)
-      localStorage.setItem("userRole",  isTeacher ? "teacher" : "student")
-      // Pas de JWT pour l'instant (ton contrôleur n'en génère pas)
-      // Quand tu ajouteras LexikJWTAuthenticationBundle :
-      //   localStorage.setItem("token", data.token)
+// Optionnel : décoder le token pour récupérer les infos user
+const payload = JSON.parse(atob(token.split('.')[1]))
 
-      // ── Redirection selon le rôle ─────────────────────────
-      if (isTeacher) {
-        navigate("/teacher/dashboard")
-      } else {
-        navigate("/student/dashboard")
-      }
+localStorage.setItem("userEmail", payload.username)
+localStorage.setItem("userRole", payload.roles?.[0] || "ROLE_STUDENT")
+
+const isTeacher =
+  payload.roles?.includes("ROLE_TEACHER") ||
+  payload.roles?.includes("ROLE_ADMIN")
+
+if (isTeacher) {
+  navigate("/teacher/dashboard")
+} else {
+  navigate("/student/dashboard")
+}
+
 
     } catch (err) {
       // Erreur réseau (Symfony pas lancé, CORS, etc.)

@@ -61,14 +61,14 @@ export default function StudentSAEList() {
 
   // ── Fetch au montage ──────────────────────────────────────
   useEffect(() => {
-    // Remplace l'URL par ton domaine Symfony si besoin
-    // ex : "https://mon-projet.lndo.site/api/student/sae"
-    fetch('http://localhost:8000/api/student/sae', {
-      headers: {
-        "Accept": "application/json",
-        "Authorization": 'Bearer ${localStorage.getItem("eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3NzUwNDIxOTUsImV4cCI6MTc3NTA0NTc5NSwicm9sZXMiOlsiUk9MRV9TVFVERU5UIiwiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoidGVzdEB0ZXN0LmNvbSJ9.YmLHgzO3BgPUyddQUEoy2xDzdrS8-Uog0NEoKuX-y1MV1aGXO2kk_cKQFCQs8I3upRHwaDiMhXISi1Ml2TXjU8D2tb2ArAfWZY6Q9MEWWDNOSj_qvc4nIegMfHfRyUmkyIbg9B9spL87fcFJHWPE4lrlnAuKUHLRPJax0Q69kXZNFw-15G80D0mUk1yMy1-Et_R9KeP9_Qm8GVgY6zi1BlImkU_D5VFV-6eh8bzwqzCc1kL27U1k6dksu-lni567KCIHQkBFXEv8yJ4_E5X1RQBQUucL25c9nTW2Gjeo12GljDXVGvp4w8YhW3ZvXD4BBxJC_tbvrHmUGW37wyDB-Q")}'
-      },
-    })
+  const token = localStorage.getItem("token")
+
+  fetch('http://localhost:8000/api/student/sae', {
+    headers: {
+      "Accept": "application/json",
+      "Authorization": `Bearer ${token}`
+    },
+  })
       .then(res => {
         if (!res.ok) throw new Error(`Erreur serveur : ${res.status}`)
         return res.json()

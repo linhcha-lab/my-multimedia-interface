@@ -1,21 +1,18 @@
 // ============================================================
-//  pages/student/Dashboard.jsx — Tableau de bord étudiant
+//  pages/student/StudentDashboard.jsx
 // ============================================================
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import PageLayoutStudent from "../../components/layout/PageLayoutStudent"
-import CircularProgress  from "../../components/common/CircularProgress"
-import { MessageRow }    from "../../components/dashboard/DashboardComponents"
-import { StatCard }      from "../../components/dashboard/DashboardComponents"
-import { Svg, IC }       from "../../components/common/Icons"
-import { MESSAGES, PROCHAINS_RENDUS, ANNONCES_STUDENT } from "../../data/mockData"
+import CircularProgress from "../../components/common/CircularProgress"
+import { MessageRow, StatCard } from "../../components/dashboard/DashboardComponents"
 import { useWindowWidth, BP } from "../../hooks/useWindowWidth"
 
-// ── Carte "Prochaine rendue" ─────────────────────────────────
+// ── Carte "Prochaine rendue" ─────────────────────────
 function RenduCard({ date, delai, sae }) {
-  // Couleur du délai selon urgence
-  const isUrgent = delai.includes("13") // moins de 15 jours
+  const isUrgent = delai?.includes("13")
+
   return (
     <div style={{
       display: "flex", alignItems: "center", gap: 14,
@@ -23,27 +20,25 @@ function RenduCard({ date, delai, sae }) {
       marginBottom: 10,
       boxShadow: "0 2px 10px rgba(124,58,237,.07)",
     }}>
-      {/* Date en badge violet */}
       <div style={{
         background: "#7c3aed", color: "#fff",
         borderRadius: 10, padding: "6px 10px",
-        fontFamily: "'Payton One',sans-serif", fontWeight: 800,
-        fontSize: 14, flexShrink: 0, minWidth: 52, textAlign: "center",
+        fontWeight: 800, fontSize: 14,
+        minWidth: 52, textAlign: "center",
       }}>
         {date}
       </div>
-      {/* Délai */}
+
       <span style={{
         fontSize: 12, fontWeight: 600,
         color: isUrgent ? "#ef4444" : "#888",
-        flexShrink: 0,
       }}>
         {delai}
       </span>
-      {/* SAE */}
+
       <span style={{
-        fontSize: 13, color: "#aaa", marginLeft: "auto",
-        fontWeight: 500,
+        fontSize: 13, color: "#aaa",
+        marginLeft: "auto",
       }}>
         {sae}
       </span>
@@ -51,125 +46,196 @@ function RenduCard({ date, delai, sae }) {
   )
 }
 
-// ── Carte "Nouvelle annonce" ─────────────────────────────────
+// ── Carte annonce ─────────────────────────
 function AnnonceCard({ count, onClick }) {
   return (
     <div onClick={onClick} style={{
-      background: "#f4f0fb", borderRadius: 18, padding: 24,
-      display: "flex", alignItems: "center", gap: 20,
-      cursor: "pointer", minHeight: 140,
-      transition: "box-shadow .2s, transform .15s",
-    }}
-      onMouseEnter={e => { e.currentTarget.style.boxShadow="0 8px 28px rgba(124,58,237,.2)"; e.currentTarget.style.transform="translateY(-2px)" }}
-      onMouseLeave={e => { e.currentTarget.style.boxShadow="none"; e.currentTarget.style.transform="none" }}
-    >
-      {/* Illustration mégaphone SVG */}
-      <div style={{ fontSize: 52, flexShrink: 0, userSelect: "none" }}>📣</div>
+      background: "#f4f0fb",
+      borderRadius: 18,
+      padding: 24,
+      display: "flex",
+      alignItems: "center",
+      gap: 20,
+      cursor: "pointer",
+    }}>
+      <div style={{ fontSize: 52 }}>📣</div>
+
       <div>
         <span style={{
-          fontFamily: "'Payton One',sans-serif",
-          fontSize: 26, fontWeight: 900,
-          color: "#1a1a2e", lineHeight: 1.2,
-          display: "block",
+          fontSize: 26,
+          fontWeight: 900,
+          color: "#1a1a2e",
         }}>
-          {count} nouvelle{count > 1 ? "s" : ""}<br />annonce{count > 1 ? "s" : ""}
+          {count} nouvelle{count > 1 ? "s" : ""}<br />
+          annonce{count > 1 ? "s" : ""}
         </span>
       </div>
     </div>
   )
 }
 
-// ── Composant principal ──────────────────────────────────────
+// ── COMPONENT PRINCIPAL ─────────────────────────
 export default function StudentDashboard() {
-  const [expandedMsg, setExpandedMsg] = useState(null)
   const navigate = useNavigate()
 
-  const w        = useWindowWidth()
+  const [expandedMsg] = useState(null)
+  const [messages, setMessages] = useState([])
+  const [progression, setProgression] = useState(0)
+  const [notifications, setNotifications] = useState(0)
+  const [prochainsRendus, setProchainsRendus] = useState([])
+
+  const w = useWindowWidth()
   const isMobile = w < BP.mobile
   const isTablet = w < BP.tablet
 
-  // Nombre d'annonces non lues
-  const annoncesNonLues = ANNONCES_STUDENT.filter(a => !a.lue).length
+  // 🔥 FETCH DASHBOARD
+  useEffect(() => {
+    const token = localStorage.getItem("token")
+
+    fetch("http://localhost:8000/api/student/dashboard", {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    })
+      .then(res => {
+        if (!res.ok) throw new Error("Erreur serveur")
+        return res.json()
+      })
+      .then(data => {
+        console.log("DASHBOARD DATA :", data)
+
+        setMessages(data.messages || [])
+        setProgression(data.progression || 0)
+        setNotifications(data.notifications || 0)
+
+        // 🔥 Adapter prochains rendus
+        const formatted = (data.prochains_rendus || []).map((r, i) => {
+          const dateObj = new Date(r.date)
+          const today = new Date()
+          const diff = Math.ceil((dateObj - today) / (1000 * 60 * 60 * 24))
+
+          return {
+            id: i,
+            date: dateObj.toLocaleDateString("fr-FR", { day: "2-digit", month: "2-digit" }),
+            delai: `dans ${diff} jours`,
+            sae: r.title || "SAE"
+          }
+        })
+
+        setProchainsRendus(formatted)
+      })
+      .catch(err => {
+        console.error("Erreur dashboard:", err)
+      })
+  }, [])
 
   return (
     <PageLayoutStudent title="Tableau de bord">
       <div style={{ display: "flex", flexDirection: "column", gap: isMobile ? 14 : 20 }}>
 
-        {/* ── Cartes stats (identiques à la vue enseignant) ── */}
+        {/* STATS */}
         <div style={{ display: "flex", flexDirection: isTablet ? "column" : "row", gap: 12 }}>
-          <StatCard percent={10} label={"Progression moyenne\nsur la SAE 406"} small={isMobile} />
-          <StatCard percent={70} label={"Progression moyenne\nsur la SAE 403"} small={isMobile} />
-          <StatCard dark small={isMobile} />
+          <StatCard percent={progression} label={"Progression moyenne"} />
+          <StatCard percent={progression} label={"Progression globale"} />
+          <StatCard dark value={notifications} />
         </div>
 
-        {/* ── Grille milieu ── */}
+        {/* GRID TOP */}
         <div style={{
-          display: "grid", gap: 16,
+          display: "grid",
+          gap: 16,
           gridTemplateColumns: isMobile ? "1fr" : isTablet ? "1fr 1fr" : "1fr 1.6fr 1fr",
         }}>
 
-          {/* Carte annonce */}
           <AnnonceCard
-            count={annoncesNonLues}
+            count={notifications}
             onClick={() => navigate("/student/annonces")}
           />
 
-          {/* Messages */}
-          <div style={{ background: "#fff", borderRadius: 18, padding: 20, boxShadow: "0 2px 18px rgba(0,0,0,.06)" }}>
-            <h2 style={{ fontFamily: "'Payton One',sans-serif", fontSize: 17, fontWeight: 800, color: "#1a1a2e", marginBottom: 12 }}>
-              Messages
+          {/* MESSAGES */}
+          <div style={{
+            background: "#fff",
+            borderRadius: 18,
+            padding: 20,
+            boxShadow: "0 2px 18px rgba(0,0,0,.06)"
+          }}>
+            <h2 style={{ fontSize: 17, fontWeight: 800, marginBottom: 12 }}>
+              Messages récents
             </h2>
-            {MESSAGES.map(m => (
-              <MessageRow
-                key={m.id}
-                name={m.name}
-                unread={m.unread}
-                expanded={expandedMsg === m.id}
-                onClick={() => setExpandedMsg(prev => prev === m.id ? null : m.id)}
-              />
-            ))}
+
+            {messages.length === 0 ? (
+              <div style={{ color: "#aaa", fontSize: 13 }}>
+                Aucun message
+              </div>
+            ) : (
+              messages.map(m => (
+                <MessageRow
+                  key={m.id}
+                  name={m.name}
+                  unread={m.unread}
+                  expanded={expandedMsg === m.id}
+                  onClick={() => navigate("/student/messages")}
+                />
+              ))
+            )}
+
+            <div style={{ marginTop: 10, textAlign: "right" }}>
+              <button
+                onClick={() => navigate("/student/messages")}
+                style={{
+                  background: "none",
+                  border: "none",
+                  color: "#7c3aed",
+                  fontWeight: 600,
+                  cursor: "pointer"
+                }}
+              >
+                Voir tous les messages →
+              </button>
+            </div>
           </div>
 
-          {/* Carte violette vide (comme sur la maquette) */}
           <div style={{
             background: "linear-gradient(160deg,#e8e0fa,#d4c5f5)",
-            borderRadius: 18, minHeight: 160,
+            borderRadius: 18,
+            minHeight: 160
           }} />
         </div>
 
-        {/* ── Grille bas ── */}
+        {/* GRID BOTTOM */}
         <div style={{
-          display: "grid", gap: 16,
+          display: "grid",
+          gap: 16,
           gridTemplateColumns: isMobile ? "1fr" : isTablet ? "1fr 1fr" : "1fr 1fr 1fr",
         }}>
 
-          {/* Prochains rendus */}
           <div style={{ background: "#ede9fb", borderRadius: 18, padding: 22 }}>
-            <h2 style={{ fontFamily: "'Payton One',sans-serif", fontSize: 17, fontWeight: 800, color: "#1a1a2e", marginBottom: 16 }}>
+            <h2 style={{ fontSize: 17, fontWeight: 800, marginBottom: 16 }}>
               Prochains rendus
             </h2>
-            {PROCHAINS_RENDUS.map(r => (
+
+            {prochainsRendus.map(r => (
               <RenduCard key={r.id} {...r} />
             ))}
           </div>
 
-          {/* Cercle SAE en cours */}
           <div style={{
-            background: "#fff", borderRadius: 18, padding: 22,
-            display: "flex", flexDirection: "column",
-            alignItems: "center", justifyContent: "center",
-            boxShadow: "0 2px 18px rgba(0,0,0,.06)",
-            gap: 16,
+            background: "#fff",
+            borderRadius: 18,
+            padding: 22,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center"
           }}>
-            <CircularProgress value={6} size={isMobile ? 130 : 155} saeMode />
+            <CircularProgress value={progression} size={140} saeMode />
           </div>
 
-          {/* Carte violette vide */}
           <div style={{
             background: "linear-gradient(160deg,#e8e0fa,#d4c5f5)",
-            borderRadius: 18, minHeight: 120,
+            borderRadius: 18
           }} />
         </div>
+
       </div>
     </PageLayoutStudent>
   )

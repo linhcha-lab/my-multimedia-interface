@@ -2,18 +2,57 @@
 //  pages/teacher/Students.jsx — Liste des étudiants
 // ============================================================
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import PageLayout from "../../components/layout/PageLayout";
 import { Svg, IC } from "../../components/common/Icons";
-import { STUDENTS } from "../../data/mockData";
 
 export default function Students() {
+  const [students, setStudents] = useState([]);
   const [search,  setSearch ] = useState("");
   const [groupe,  setGroupe ] = useState("tous");
 
-  const groupes = ["tous", ...new Set(STUDENTS.map(s => s.groupe))];
+  // 🔥 Récupération backend
+  useEffect(() => {
+    const fetchStudents = async () => {
+      try {
+        const token = localStorage.getItem("token");
 
-  const filtres = STUDENTS.filter(s => {
+        const res = await fetch("http://localhost:8000/api/students", {
+          headers: {
+            "Authorization": `Bearer ${token}`,
+            "Content-Type": "application/json"
+          }
+        });
+
+        if (!res.ok) throw new Error("Erreur API");
+
+        const data = await res.json();
+
+        // 👉 Adapter backend → frontend (même structure que STUDENTS)
+        const formatted = data.map(s => ({
+          id: s.id,
+          prenom: s.firstName,
+          nom: s.lastName,
+          groupe: s.parcours || "N/A",
+          semestre: s.year,
+          progression: Math.floor(Math.random() * 100), // temporaire
+          email: s.email,
+        }));
+
+        setStudents(formatted);
+
+      } catch (err) {
+        console.error("Erreur chargement étudiants :", err);
+      }
+    };
+
+    fetchStudents();
+  }, []);
+
+  // 🔥 EXACTEMENT comme avant
+  const groupes = ["tous", ...new Set(students.map(s => s.groupe))];
+
+  const filtres = students.filter(s => {
     const matchSearch = `${s.prenom} ${s.nom}`.toLowerCase().includes(search.toLowerCase());
     const matchGroupe = groupe === "tous" || s.groupe === groupe;
     return matchSearch && matchGroupe;
@@ -42,6 +81,7 @@ export default function Students() {
             }}
           />
         </div>
+
         {/* Filtre groupe */}
         <select value={groupe} onChange={e => setGroupe(e.target.value)} style={{
           padding: "10px 14px", borderRadius: 12, border: "1px solid #e0daf5",
@@ -68,6 +108,7 @@ export default function Students() {
           <span>Progression</span>
           <span>Email</span>
         </div>
+
         {/* Lignes */}
         {filtres.map((s, i) => (
           <div key={s.id} style={{
@@ -91,23 +132,38 @@ export default function Students() {
                 {s.prenom.charAt(0)}
               </div>
               <div>
-                <div style={{ fontSize: 13, fontWeight: 600, color: "#1a1a2e" }}>{s.prenom} {s.nom}</div>
-                <div style={{ fontSize: 11, color: "#aaa" }}>BUT2 – {s.semestre}</div>
+                <div style={{ fontSize: 13, fontWeight: 600, color: "#1a1a2e" }}>
+                  {s.prenom} {s.nom}
+                </div>
+                <div style={{ fontSize: 11, color: "#aaa" }}>
+                  BUT2 – {s.semestre}
+                </div>
               </div>
             </div>
+
             {/* Groupe */}
             <span style={{ fontSize: 13, color: "#555" }}>{s.groupe}</span>
+
             {/* Progression */}
             <div>
-              <div style={{ fontSize: 12, fontWeight: 700, color: "#7c3aed", marginBottom: 4 }}>{s.progression}%</div>
+              <div style={{ fontSize: 12, fontWeight: 700, color: "#7c3aed", marginBottom: 4 }}>
+                {s.progression}%
+              </div>
               <div style={{ background: "#f0edf8", borderRadius: 4, height: 5, width: 80 }}>
-                <div style={{ height: "100%", borderRadius: 4, width: `${s.progression}%`, background: "linear-gradient(90deg,#7c3aed,#9d5cf5)" }} />
+                <div style={{
+                  height: "100%",
+                  borderRadius: 4,
+                  width: `${s.progression}%`,
+                  background: "linear-gradient(90deg,#7c3aed,#9d5cf5)"
+                }} />
               </div>
             </div>
+
             {/* Email */}
             <span style={{ fontSize: 12, color: "#7c3aed" }}>{s.email}</span>
           </div>
         ))}
+
         {filtres.length === 0 && (
           <div style={{ padding: "40px 20px", textAlign: "center", color: "#aaa", fontSize: 13 }}>
             Aucun étudiant trouvé
