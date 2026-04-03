@@ -248,7 +248,6 @@ if (isTeacher) {
         {/* Aide debug en dev */}
         {import.meta.env.DEV && (
           <div style={{ marginTop: 24, fontSize: 11, color: "rgba(255,255,255,.3)", textAlign: "center" }}>
-            Dev · POST /api/login · Symfony doit tourner sur le même domaine
           </div>
         )}
       </div>

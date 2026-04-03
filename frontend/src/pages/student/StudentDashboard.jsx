@@ -11,7 +11,8 @@ import { useWindowWidth, BP } from "../../hooks/useWindowWidth"
 
 // ── Carte "Prochaine rendue" ─────────────────────────
 function RenduCard({ date, delai, sae }) {
-  const isUrgent = delai?.includes("13")
+  const days = parseInt(delai.replace(/\D/g, ""))
+  const isUrgent = days <= 15
 
   return (
     <div style={{
@@ -81,9 +82,10 @@ export default function StudentDashboard() {
   const [expandedMsg] = useState(null)
   const [messages, setMessages] = useState([])
   const [progression, setProgression] = useState(0)
+  const [progressionsSAE, setProgressionsSAE] = useState([]) // ✅ FIX IMPORTANT
   const [notifications, setNotifications] = useState(0)
   const [prochainsRendus, setProchainsRendus] = useState([])
-
+const [semestreProgression, setSemestreProgression] = useState(0)
   const w = useWindowWidth()
   const isMobile = w < BP.mobile
   const isTablet = w < BP.tablet
@@ -106,7 +108,9 @@ export default function StudentDashboard() {
 
         setMessages(data.messages || [])
         setProgression(data.progression || 0)
+        setProgressionsSAE(data.progressions_sae || []) // ✅ FIX
         setNotifications(data.notifications || 0)
+        setSemestreProgression(data.semestre_progression || 0) // ✅ AJOUT
 
         // 🔥 Adapter prochains rendus
         const formatted = (data.prochains_rendus || []).map((r, i) => {
@@ -118,7 +122,7 @@ export default function StudentDashboard() {
             id: i,
             date: dateObj.toLocaleDateString("fr-FR", { day: "2-digit", month: "2-digit" }),
             delai: `dans ${diff} jours`,
-            sae: r.title || "SAE"
+            sae: r.title
           }
         })
 
@@ -135,8 +139,16 @@ export default function StudentDashboard() {
 
         {/* STATS */}
         <div style={{ display: "flex", flexDirection: isTablet ? "column" : "row", gap: 12 }}>
-          <StatCard percent={progression} label={"Progression moyenne"} />
-          <StatCard percent={progression} label={"Progression globale"} />
+          <StatCard
+            percent={progressionsSAE?.[0]?.progression || 0}
+            label={progressionsSAE?.[0]?.code || "SAE"}
+          />
+
+          <StatCard
+            percent={progressionsSAE?.[1]?.progression || 0}
+            label={progressionsSAE?.[1]?.code || "SAE"}
+          />
+
           <StatCard dark value={notifications} />
         </div>
 
@@ -227,7 +239,7 @@ export default function StudentDashboard() {
             alignItems: "center",
             justifyContent: "center"
           }}>
-            <CircularProgress value={progression} size={140} saeMode />
+            <CircularProgress value={semestreProgression} size={140} saeMode />
           </div>
 
           <div style={{

@@ -63,12 +63,13 @@ export default function StudentSAEList() {
   useEffect(() => {
   const token = localStorage.getItem("token")
 
-  fetch('http://localhost:8000/api/student/sae', {
-    headers: {
-      "Accept": "application/json",
-      "Authorization": `Bearer ${token}`
-    },
-  })
+fetch("http://localhost:8000/api/student/sae", {
+  method: "GET",
+  headers: {
+    "Content-Type": "application/json",
+    Authorization: `Bearer ${token}`
+  }
+})
       .then(res => {
         if (!res.ok) throw new Error(`Erreur serveur : ${res.status}`)
         return res.json()
