@@ -57,7 +57,7 @@ export default function SAEList() {
   const [saes, setSaes] = useState([])
   const [loading, setLoading] = useState(true)
 
-  // 🔥 FETCH API
+  // FETCH API
   useEffect(() => {
     fetch("http://localhost:8000/api/prof/sae", {
       credentials: "include"
@@ -73,13 +73,13 @@ export default function SAEList() {
       })
   }, [])
 
-  // 🔎 FILTRE
+  // FILTRE
   const saeFiltrees =
     filtre === "tous"
       ? saes
       : saes.filter(s => s.etat === filtre)
 
-  // ⏳ LOADING
+  // LOADING
   if (loading) {
  return (
   <PageLayout title="Liste des SAE">

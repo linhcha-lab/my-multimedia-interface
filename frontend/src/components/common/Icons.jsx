@@ -1,7 +1,5 @@
 // ============================================================
 //  Icons.jsx — Toutes les icônes SVG de l'application
-//  On centralise ici pour ne pas réécrire les paths partout.
-//
 //  Utilisation :
 //    import { Svg, IC } from '../common/Icons'
 //    <Svg d={IC.home} size={20} />

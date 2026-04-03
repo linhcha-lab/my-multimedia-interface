@@ -2,16 +2,6 @@
 //  pages/public/ProjetDetail.jsx
 //  Page de détail d'un projet — Route : /public/projets/:id
 //
-//  COMMENT ÇA MARCHE :
-//  1. React Router lit l'`:id` dans l'URL (ex: /public/projets/3)
-//  2. On cherche le projet dans PROJETS (le tableau dans projets.js)
-//  3. On affiche ses données — titre, couleurs, photos, description
-//  4. La structure HTML est toujours la même, seul le contenu change
-//
-//  Plus tard avec une vraie BDD :
-//  Remplace la ligne `const projet = PROJETS.find(...)`
-//  par : const projet = await fetch(`/api/projets/${id}`)
-// ============================================================
 
 import { useParams, useNavigate } from "react-router-dom"
 
@@ -96,14 +86,13 @@ function Footer() {
 //  PAGE
 // ══════════════════════════════════════════════════════════════
 export default function ProjetDetail() {
-  const { id } = useParams()        // lit l'id dans l'URL
+  const { id } = useParams()        
   const navigate = useNavigate()
 
   // ── On cherche le projet par son id ──────────────────────
-  // C'est la seule ligne à changer quand tu auras une vraie API
   const projet = PROJETS.find(p => p.id === id)
 
-  // ── Projet introuvable ou masqué ─────────────────────────
+  
   if (!projet || !projet.visible) {
     return (
       <>
@@ -138,11 +127,11 @@ export default function ProjetDetail() {
       <Header />
 
       {/* ══════════════════════
-          HERO — fond coloré + titre + photo principale
+          HERO 
       ══════════════════════ */}
       <section style={{
         background: couleurFond,
-        paddingTop: 72,         // compense le header fixe
+        paddingTop: 72,         
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
@@ -150,7 +139,7 @@ export default function ProjetDetail() {
         overflow: "hidden",
       }}>
 
-        {/* Titre énorme */}
+        {/* Titre */}
         <h1 className="detail-title" style={{
           fontFamily: "'Payton One', sans-serif",
           fontWeight: 900,
@@ -165,7 +154,7 @@ export default function ProjetDetail() {
           {titre}
         </h1>
 
-        {/* Auteur — aligné à droite */}
+        {/* Auteur  */}
         <p style={{
           color: couleurTexte, opacity: .85,
           fontSize: "clamp(13px, 2vw, 18px)",
@@ -197,7 +186,7 @@ export default function ProjetDetail() {
       </section>
 
       {/* ══════════════════════
-          GALERIE — 4 photos secondaires côte à côte pleine largeur
+          GALERIE — 4 photos secondaires 
       ══════════════════════ */}
       <section style={{
         display: "grid",
@@ -215,7 +204,7 @@ export default function ProjetDetail() {
       </section>
 
       {/* ══════════════════════
-          DESCRIPTION — paragraphe de texte
+          DESCRIPTION
       ══════════════════════ */}
       <section style={{
         background: "#fff",

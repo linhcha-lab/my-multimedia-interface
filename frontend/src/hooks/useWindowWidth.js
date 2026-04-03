@@ -1,7 +1,6 @@
 // ============================================================
 //  useWindowWidth.js — Hook personnalisé
 //  Retourne la largeur de la fenêtre et se met à jour en temps réel.
-//  Utilisé pour rendre les composants responsive.
 //
 //  Utilisation :
 //    const width = useWindowWidth()

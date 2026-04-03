@@ -33,7 +33,7 @@ const [search, setSearch] = useState("")
 
 const messagesEndRef = useRef()
 
-// 🔥 FETCH MESSAGES
+
 const fetchMessages = () => {
 const token = localStorage.getItem("token")
 
@@ -100,7 +100,7 @@ useEffect(() => {
 messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
 }, [selected?.messages?.length])
 
-// 🔥 SEND MESSAGE
+
 const handleSend = async () => {
 if (!reply.trim() || !selected) return
 

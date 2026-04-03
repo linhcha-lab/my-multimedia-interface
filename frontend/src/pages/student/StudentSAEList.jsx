@@ -7,15 +7,13 @@ import { useNavigate } from "react-router-dom"
 import PageLayoutStudent from "../../components/layout/PageLayoutStudent"
 
 
-// ── Mapping statut Symfony → etat front ──────────────────────
-// Symfony renvoie : "in_progress" | "completed" | "upcoming"  (à adapter selon ton enum)
-// Le front attend : "en_cours"   | "termine"   | "a_venir"
+
 function mapStatut(status) {
   return {
     in_progress: "en_cours",
     completed:   "termine",
     upcoming:    "a_venir",
-    // si Symfony envoie déjà en français, ces lignes couvrent aussi :
+    
     en_cours:    "en_cours",
     termine:     "termine",
     a_venir:     "a_venir",
@@ -59,7 +57,7 @@ export default function StudentSAEList() {
   const [error,   setError  ] = useState(null)
 
 
-  // ── Fetch au montage ──────────────────────────────────────
+  // ── Fetch  ──────────────────────────────────────
   useEffect(() => {
   const token = localStorage.getItem("token")
 
@@ -75,15 +73,13 @@ fetch("http://localhost:8000/api/student/sae", {
         return res.json()
       })
       .then(data => {
-        // Symfony renvoie : [{ id, title, status, date_fin }, ...]
-        // On normalise pour le front
+       
         const normalised = data.map(sae => ({
           id:          sae.id,
           titre:       sae.title,
           etat:        mapStatut(sae.status),
           echeance:    sae.date_fin ?? null,
-          // progression n'est pas renvoyée par list() → on met 0 par défaut
-          // pour l'avoir : ajoute-la dans le contrôleur ou fetche le détail
+          
           progression: sae.progression ?? 0,
         }))
         setSaes(normalised)
@@ -93,7 +89,7 @@ fetch("http://localhost:8000/api/student/sae", {
   }, [])
 
 
-  // ── Filtrage local ────────────────────────────────────────
+  // ── Filtrage ────────────────────────────────────────
   const filtrees = filtre === "tous" ? saes : saes.filter(s => s.etat === filtre)
 
 

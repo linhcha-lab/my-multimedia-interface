@@ -200,7 +200,7 @@ export default function PublierSAE(){
         return
       }
 
-      // Succès → { success:true, message:"...", data:{...} }
+      
       setSubmitted(true)
       setTimeout(()=>navigate("/student/dashboard"),2500)
 

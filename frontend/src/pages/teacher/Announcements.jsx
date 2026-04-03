@@ -12,7 +12,7 @@ export default function Announcements() {
   const [showModal,  setShowModal ] = useState(false);
   const [form,       setForm      ] = useState({ titre: "", sae: "", contenu: "" });
 
-  // 🔥 Récupération des annonces depuis Symfony
+  //  Récupération des annonces depuis Symfony
   useEffect(() => {
     const fetchAnnonces = async () => {
       try {
@@ -31,7 +31,7 @@ export default function Announcements() {
 
         const data = await res.json();
 
-        // Adapter les données backend → frontend
+        
         const formatted = data.map(a => ({
           id: a.id,
           titre: a.title,

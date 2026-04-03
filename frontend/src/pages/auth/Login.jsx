@@ -1,11 +1,6 @@
 // pages/auth/Login.jsx
 // Branché sur POST /api/login → App\Controller\LoginController::login
-//
-// Ce que fait Symfony en retour :
-// ✅ { success: true, user: { id, email, roles } }
-// ❌ { error: "..." } avec status 400 / 401 / 404
-//
-// On stocke le rôle + email dans localStorage pour router l'étudiant/prof
+
 
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
@@ -48,18 +43,18 @@ export default function Login() {
 
       // ── Erreur renvoyée par Symfony ───────────────────────
       if (!res.ok) {
-        // Symfony renvoie { error: "..." }
+        
         setError(data.error ?? `Erreur serveur (${res.status})`)
         return
       }
 
-      // ── Succès : { success: true, user: { id, email, roles } }
+      
       const token = data.token
 
 // Stockage du token
 localStorage.setItem("token", token)
 
-// Optionnel : décoder le token pour récupérer les infos user
+
 const payload = JSON.parse(atob(token.split('.')[1]))
 
 localStorage.setItem("userEmail", payload.username)
@@ -77,7 +72,7 @@ if (isTeacher) {
 
 
     } catch (err) {
-      // Erreur réseau (Symfony pas lancé, CORS, etc.)
+      
       setError("Impossible de joindre le serveur. Vérifie que Symfony est lancé.")
       console.error("[Login] Erreur fetch :", err)
     } finally {

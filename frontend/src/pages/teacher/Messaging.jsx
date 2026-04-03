@@ -40,7 +40,7 @@ const [filtre, setFiltre] = useState("tous")
 
 const messagesEndRef = useRef()
 
-// 🔥 FETCH MESSAGES
+// FETCH MESSAGES
 const fetchMessages = () => {
 const token = localStorage.getItem("token")
 
@@ -104,7 +104,7 @@ useEffect(() => {
 messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
 }, [selected?.messages?.length])
 
-// 🔥 SEND
+
 const handleSend = async () => {
 if (!reply.trim() || !selected) return
 

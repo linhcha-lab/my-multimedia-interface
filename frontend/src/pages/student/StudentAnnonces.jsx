@@ -4,7 +4,7 @@ import PageLayoutStudent from "../../components/layout/PageLayoutStudent"
 export default function StudentAnnonces() {
   const [annonces, setAnnonces] = useState([])
 
-  // 🔥 Récupération depuis Symfony
+  
   useEffect(() => {
     const fetchAnnonces = async () => {
       try {
@@ -21,7 +21,7 @@ export default function StudentAnnonces() {
 
         const data = await res.json()
 
-        // Adapter backend → frontend
+        
         const formatted = data.map(a => ({
           id: a.id,
           titre: a.title,

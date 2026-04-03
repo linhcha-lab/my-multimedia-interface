@@ -1,7 +1,5 @@
 // ============================================================
 //  mockData.js — Données fictives
-//  ⚠️  Ces données seront remplacées par des appels API Symfony
-//  quand le back-end sera prêt. Pour l'instant on simule.
 // ============================================================
 
 export const NAV_ITEMS = [
@@ -70,10 +68,7 @@ export const VALIDATIONS = [
 ];
 
 
-// ============================================================
-//  Ajoute ces données dans src/data/mockData.js
-//  à la suite des données déjà existantes
-// ============================================================
+
 
 // Navigation sidebar — vue ÉTUDIANTE (différente de l'enseignant)
 export const NAV_ITEMS_STUDENT = [

@@ -52,9 +52,9 @@ export default function PublierSAE() {
     fetchSaes()
   }, [])
 
-  // ⚠️ TON BACK N'A PAS semester → on enlève filtre sinon ça casse tout
+  
   const saesFiltrees = semestre
-    ? saes // 🔥 temporaire (sinon vide)
+    ? saes 
     : saes
 
   // ================= HELPERS =================

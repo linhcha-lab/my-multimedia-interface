@@ -46,7 +46,7 @@ export default function Validation() {
         setItems(formatted);
 
       } catch (err) {
-        console.error("❌ erreur fetch projects :", err);
+        console.error(" erreur fetch projects :", err);
         setItems([]);
       }
     };
@@ -71,7 +71,7 @@ export default function Validation() {
       );
 
     } catch (err) {
-      console.error("❌ erreur validation :", err);
+      console.error(" erreur validation :", err);
     }
   };
 
@@ -103,7 +103,7 @@ export default function Validation() {
       refuse:     { label: "Refusé",     bg: "#fce7e7", color: "#991b1b" },
     };
 
-    const c = map[statut] || map.en_attente; // 🔥 anti crash
+    const c = map[statut] || map.en_attente; 
 
     return (
       <span style={{

@@ -1,11 +1,6 @@
 // ============================================================
 //  CircularProgress.jsx
 //  Cercle de progression SVG avec dégradé violet → jaune.
-//
-//  Props :
-//    value  (number) → pourcentage 0-100
-//    size   (number) → taille en px (défaut 155)
-//    stroke (number) → épaisseur du trait (défaut 12)
 // ============================================================
 
 export default function CircularProgress({ value, size = 155, stroke = 12 }) {

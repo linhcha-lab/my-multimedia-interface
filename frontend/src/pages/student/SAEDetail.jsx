@@ -17,9 +17,7 @@ export default function SAEDetailStudent() {
   const [taches, setTaches] = useState([])
   const [uploads, setUploads] = useState({})
 
-  /////////////////////////////////////////////////////////////
-  // 🔥 FETCH BACK
-  /////////////////////////////////////////////////////////////
+  
   useEffect(() => {
     const token = localStorage.getItem("token")
 
@@ -60,13 +58,11 @@ export default function SAEDetailStudent() {
       .finally(() => setLoading(false))
   }, [id])
 
-  /////////////////////////////////////////////////////////////
-  // 🔥 TOGGLE API
-  /////////////////////////////////////////////////////////////
+  
 const toggleTache = async (tacheId) => {
   const token = localStorage.getItem("token")
 
-  // 🔥 1. update immédiat (UX fluide)
+  
   setTaches(prev =>
     prev.map(t =>
       t.id === tacheId
@@ -85,7 +81,7 @@ const toggleTache = async (tacheId) => {
 
     const data = await res.json()
 
-    // 🔥 2. sync avec le backend (sécurité)
+    
     setTaches(prev =>
       prev.map(t =>
         t.id === tacheId
@@ -99,9 +95,7 @@ const toggleTache = async (tacheId) => {
   }
 }
 
-/////////////////////////////////////////////////////////////
-// 🔥 UPLOAD FILE
-/////////////////////////////////////////////////////////////
+
 const uploadFile = async (submissionId) => {
   const token = localStorage.getItem("token")
   const file = uploads[submissionId]?.file
@@ -139,16 +133,12 @@ const uploadFile = async (submissionId) => {
 }
 
 
-  /////////////////////////////////////////////////////////////
-  // 🔥 PROGRESSION
-  /////////////////////////////////////////////////////////////
+  
   const progression = taches.length > 0
     ? Math.round((taches.filter(t => t.done).length / taches.length) * 100)
     : 0
 
-  /////////////////////////////////////////////////////////////
-  // STATES
-  /////////////////////////////////////////////////////////////
+ 
   if (loading) {
     return (
       <PageLayoutStudent>
@@ -165,9 +155,7 @@ const uploadFile = async (submissionId) => {
     )
   }
 
-  /////////////////////////////////////////////////////////////
-  // UI
-  /////////////////////////////////////////////////////////////
+
   return (
     <PageLayoutStudent title="">
 
