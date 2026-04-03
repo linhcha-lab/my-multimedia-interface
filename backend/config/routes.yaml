@@ -18,12 +18,17 @@ api_student_dashboard:
 
 api_task_toggle:
     path: /api/student/task/{id}/toggle
-    controller: App\Controller\Student\TaskController::toggle
-    methods: POST
+    controller: App\Controller\TaskController::toggle
+    methods: [POST]
 
 upload:
     path: /api/upload
     controller: App\Controller\UploadController::upload
+    methods: [POST]
+
+submission_upload:
+    path: /api/submissions/{id}/upload
+    controller: App\Controller\SubmissionController::upload
     methods: [POST]
 
 dashboard_prof:
@@ -71,10 +76,7 @@ question_send:
     controller: App\Controller\QuestionController::send
     methods: [POST]
 
-submission_upload:
-    path: /api/submissions/upload
-    controller: App\Controller\SubmissionController::upload
-    methods: [POST]
+
 
 student_sae_list:
     path: /api/student/sae
@@ -115,5 +117,9 @@ api_announcements_list:
     path: /api/announcements
     controller: App\Controller\AnnouncementController::list
     methods: [GET]
+
+
+
+
 
 

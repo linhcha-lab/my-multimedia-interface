@@ -7,73 +7,161 @@ use App\Entity\Task;
 use App\Entity\Resource;
 use App\Entity\Submission;
 use App\Entity\Announcement;
+use App\Entity\TaskProgress;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
 class StudentSAEController extends AbstractController
 {
-    // 🔥 LISTE DES SAE (optionnel si tu l’as déjà)
-   public function list(EntityManagerInterface $em): JsonResponse
-{
-    $saes = $em->getRepository(SAEInstance::class)->findAll();
+    /////////////////////////////////////////////////////////////
+    // 🔥 LISTE DES SAE (avec progression)
+    /////////////////////////////////////////////////////////////
+    public function list(EntityManagerInterface $em): JsonResponse
+    {
+        $user = $this->getUser();
 
-    $data = array_map(function ($sae) {
-        return [
-            'id' => $sae->getId(),
-            'title' => $sae->getSae()->getTitle(),
-            'status' => $sae->getStatus(),
-            'date_fin' => $sae->getEndDate()?->format('Y-m-d')
-        ];
-    }, $saes);
+        $saes = $em->getRepository(SAEInstance::class)->findAll();
 
-    return $this->json($data);
-}
+        $taskRepo = $em->getRepository(Task::class);
+        $progressRepo = $em->getRepository(TaskProgress::class);
 
-    // 🔥 SAE COMPLET (IMPORTANT)
+        $data = array_map(function ($sae) use ($taskRepo, $progressRepo, $user) {
+
+            $tasks = $taskRepo->findBy([
+                'saeInstance' => $sae
+            ]);
+
+            $doneCount = 0;
+
+            foreach ($tasks as $task) {
+                $progress = $progressRepo->findOneBy([
+                    'task' => $task,
+                    'student' => $user
+                ]);
+
+                if ($progress && $progress->isDone()) {
+                    $doneCount++;
+                }
+            }
+
+            $total = count($tasks);
+
+            $progression = $total > 0
+                ? round(($doneCount / $total) * 100)
+                : 0;
+
+            return [
+                'id' => $sae->getId(),
+                'title' => $sae->getSae()->getTitle(),
+                'status' => $sae->getStatus(),
+                'date_fin' => $sae->getEndDate()?->format('Y-m-d'),
+                'progression' => $progression,
+                'code' => $sae->getSae()->getCode(),
+                'semester' => $sae->getSae()->getSemester(),
+            ];
+        }, $saes);
+
+        return $this->json($data);
+    }
+
+    /////////////////////////////////////////////////////////////
+    // 🔥 DETAIL SAE
+    /////////////////////////////////////////////////////////////
     public function show(SAEInstance $sae, EntityManagerInterface $em): JsonResponse
-{
-    $tasks = $em->getRepository(Task::class)->findBy([
-        'saeInstance' => $sae
-    ]);
+    {
+        $user = $this->getUser();
 
-    $resources = $em->getRepository(Resource::class)->findBy([
-        'saeInstance' => $sae
-    ]);
+        $taskRepo = $em->getRepository(Task::class);
+        $progressRepo = $em->getRepository(TaskProgress::class);
 
-    $submissions = $em->getRepository(Submission::class)->findBy([
-        'saeInstance' => $sae
-    ]);
+        /////////////////////////////////////////////////////////////
+        // 🔥 TASKS
+        /////////////////////////////////////////////////////////////
+        $tasks = $taskRepo->findBy(
+            ['saeInstance' => $sae],
+            ['orderIndex' => 'ASC']
+        );
 
-    $announcements = $em->getRepository(Announcement::class)->findBy([
-        'saeInstance' => $sae
-    ]);
+        $taches = [];
+        $doneCount = 0;
 
-    return $this->json([
-        'id' => $sae->getId(),
-        'title' => $sae->getSae()->getTitle(),
-        'description' => $sae->getSae()->getDescription(),
-        'status' => $sae->getStatus(),
+        foreach ($tasks as $task) {
 
-        'tasks' => array_map(fn($t) => [
-            'id' => $t->getId(),
-            'title' => $t->getTitle()
-        ], $tasks),
+            $progress = $progressRepo->findOneBy([
+                'task' => $task,
+                'student' => $user
+            ]);
 
-        'resources' => array_map(fn($r) => [
-            'title' => $r->getTitle(),
-            'file' => $r->getFilePath()
-        ], $resources),
+            $done = $progress ? $progress->isDone() : false;
 
-        'submissions' => array_map(fn($s) => [
-            'title' => $s->getTitle(),
-            'dueDate' => $s->getDueDate()->format('Y-m-d')
-        ], $submissions),
+            if ($done) $doneCount++;
 
-        'announcements' => array_map(fn($a) => [
-            'title' => $a->getTitle(),
-            'content' => $a->getContent()
-        ], $announcements),
-    ]);
-}
+            $taches[] = [
+                'id' => $task->getId(),
+                'label' => $task->getTitle(),
+                'done' => $done
+            ];
+        }
+
+        $total = count($tasks);
+
+        $progression = $total > 0
+            ? round(($doneCount / $total) * 100)
+            : 0;
+
+        /////////////////////////////////////////////////////////////
+        // 🔥 AUTRES DONNÉES
+        /////////////////////////////////////////////////////////////
+        $resources = $em->getRepository(Resource::class)->findBy([
+            'saeInstance' => $sae
+        ]);
+
+        $submissions = $em->getRepository(Submission::class)->findBy([
+            'saeInstance' => $sae
+        ]);
+
+        $announcements = $em->getRepository(Announcement::class)->findBy([
+            'saeInstance' => $sae
+        ]);
+
+        /////////////////////////////////////////////////////////////
+        // 🔥 RESPONSE
+        /////////////////////////////////////////////////////////////
+        return $this->json([
+            'id' => $sae->getId(),
+
+            'code' => $sae->getSae()->getCode(),
+            'title' => $sae->getSae()->getTitle(),
+             'semester' => $sae->getSae()->getSemester(), // 🔥 CRUCIAL
+            'description' => $sae->getSae()->getDescription(),
+
+            'status' => $sae->getStatus(),
+            'dateLimite' => $sae->getEndDate()?->format('Y-m-d'),
+            'progression' => $progression,
+
+            'taches' => $taches,
+
+            'livrables' => array_map(fn($s) => [
+                'id' => $s->getId(),
+                'label' => $s->getTitle(),
+                'deadline' => $s->getDueDate()?->format('Y-m-d')
+            ], $submissions),
+
+            'ressources' => array_map(fn($r) => [
+                'id' => $r->getId(),
+                'nom' => $r->getTitle(),
+                'taille' => '—',
+                'date' => date('Y-m-d'),
+            ], $resources),
+
+            'annonces' => array_map(fn($a) => [
+                'id' => $a->getId(),
+                'titre' => $a->getTitle(),
+                'contenu' => $a->getContent(),
+                'date' => date('Y-m-d'),
+                'prof' => $a->getAuthor()?->getFirstName() . ' ' . $a->getAuthor()?->getLastName()
+            ], $announcements),
+        ]);
+    }
 }

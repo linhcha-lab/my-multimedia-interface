@@ -23,7 +23,7 @@ class SubmissionFile
     private ?User $student = null;
 
     #[ORM\ManyToOne]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\JoinColumn(nullable: true)]
     private ?Groupe $groupe = null;
 
     #[ORM\Column(length: 255)]
