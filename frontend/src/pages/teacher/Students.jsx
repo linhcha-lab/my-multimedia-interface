@@ -11,7 +11,7 @@ export default function Students() {
   const [search,  setSearch ] = useState("");
   const [groupe,  setGroupe ] = useState("tous");
 
-  // 🔥 Récupération backend
+
   useEffect(() => {
     const fetchStudents = async () => {
       try {
@@ -28,7 +28,7 @@ export default function Students() {
 
         const data = await res.json();
 
-        // 👉 Adapter backend → frontend (même structure que STUDENTS)
+       
         const formatted = data.map(s => ({
           id: s.id,
           prenom: s.firstName,
@@ -49,7 +49,6 @@ export default function Students() {
     fetchStudents();
   }, []);
 
-  // 🔥 EXACTEMENT comme avant
   const groupes = ["tous", ...new Set(students.map(s => s.groupe))];
 
   const filtres = students.filter(s => {

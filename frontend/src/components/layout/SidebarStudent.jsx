@@ -21,9 +21,7 @@ export default function SidebarStudent({ open, onClose }) {
     if (isMobile) onClose()
   }
 
-  // ─────────────────────────────────────────────
-  // 🔥 USER DYNAMIQUE (depuis localStorage)
-  // ─────────────────────────────────────────────
+
   const email = localStorage.getItem("userEmail") || ""
 
   const formatNameFromEmail = (email) => {

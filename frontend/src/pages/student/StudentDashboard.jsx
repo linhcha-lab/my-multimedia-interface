@@ -90,7 +90,7 @@ const [semestreProgression, setSemestreProgression] = useState(0)
   const isMobile = w < BP.mobile
   const isTablet = w < BP.tablet
 
-  // 🔥 FETCH DASHBOARD
+  // FETCH DASHBOARD
   useEffect(() => {
     const token = localStorage.getItem("token")
 
@@ -112,7 +112,7 @@ const [semestreProgression, setSemestreProgression] = useState(0)
         setNotifications(data.notifications || 0)
         setSemestreProgression(data.semestre_progression || 0) // ✅ AJOUT
 
-        // 🔥 Adapter prochains rendus
+      
         const formatted = (data.prochains_rendus || []).map((r, i) => {
           const dateObj = new Date(r.date)
           const today = new Date()

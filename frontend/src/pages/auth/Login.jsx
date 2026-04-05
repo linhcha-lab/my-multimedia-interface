@@ -41,7 +41,6 @@ export default function Login() {
 
       const data = await res.json()
 
-      // ── Erreur renvoyée par Symfony ───────────────────────
       if (!res.ok) {
         
         setError(data.error ?? `Erreur serveur (${res.status})`)

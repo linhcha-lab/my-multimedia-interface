@@ -158,26 +158,26 @@ export default function PublierSAE(){
     try{
       const auteur=choixAuteur==="moi" ? MOI.nom : monGroupe?.membres.join(", ")??MOI.nom
 
-      // FormData — obligatoire pour envoyer des fichiers
+      // FormData — obligatoire pour envoyer nos fichiers
       const fd=new FormData()
       fd.append("titre",         titre)
       fd.append("semestre",      String(semestre))
-      fd.append("sae_code",      saeSelectionnee)     // ex: "SAE 1.03"
+      fd.append("sae_code",      saeSelectionnee)     
       fd.append("categorie",     categorie)
       fd.append("description",   description)
       fd.append("auteur",        auteur)
-      fd.append("couleur_fond",  bgColor)             // ex: "#1ebe6e"
+      fd.append("couleur_fond",  bgColor)             
       fd.append("couleur_texte", textColor)
 
       // Fichiers images
       fd.append("photo_main", photoMain.file, photoMain.name)
       photosSecond.forEach((ph,i)=>{ if(ph) fd.append(`photo_${i+1}`,ph.file,ph.name) })
 
-      // PDF optionnel (premier sélectionné)
+      // PDF optionnel 
       const pdfSel=pdfFiles.find(p=>p.selected)
       if(pdfSel) fd.append("pdf",pdfSel.file,pdfSel.name)
 
-      // ⚠️ Ne pas mettre Content-Type manuellement → le navigateur gère le boundary multipart
+      
       const res=await fetch("/api/student/publier-sae",{
         method:"POST",
         headers:{
@@ -190,7 +190,7 @@ export default function PublierSAE(){
       const data=await res.json()
 
       if(!res.ok){
-        // Symfony renvoie { success:false, errors:{ champ:"message" } }
+       
         if(data.errors){
           setErrors(data.errors)
           document.querySelector(".error-msg")?.scrollIntoView({behavior:"smooth",block:"center"})

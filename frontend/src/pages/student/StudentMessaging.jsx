@@ -60,7 +60,7 @@ fetch("http://localhost:8000/api/messages", {
     data.forEach(msg => {
   const other = msg.fromMe ? msg.receiver : msg.sender
 
-  // 🔥 nom propre
+  
   const fullName = `${other.firstname} ${other.lastname}`
 
   if (!grouped[other.id]) {

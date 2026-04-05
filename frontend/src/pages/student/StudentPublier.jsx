@@ -88,7 +88,7 @@ export default function PublierSAE() {
       formData.append("textColor", hsl(textHue))
       formData.append("sae_id", sae)
 
-      // 🔥 IMAGES
+      // IMAGES
       if (photoMain) formData.append("images[]", photoMain)
       photos.forEach(p => {
         if (p) formData.append("images[]", p)
